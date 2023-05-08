@@ -9,6 +9,7 @@ import login from './screen/login';
 import signup from './screen/signup';
 import splashScreen from './screen/splashScreen';
 import materi from './screen/materi';
+import isiMateri from './screen/isiMateri';
 const Stack = createNativeStackNavigator();
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Stack.Screen name="signup" component={signup} />
         <Stack.Screen name="splashScreen" component={splashScreen} />
         <Stack.Screen name="materi" component={materi} />
+        <Stack.Screen name="isiMateri" component={isiMateri} />
       </Stack.Navigator>
     </NavigationContainer>
   );
