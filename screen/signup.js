@@ -82,7 +82,7 @@ const signup = ({navigation}) => {
                               shadowOpacity: 0.5,
                               shadowRadius: 4,
                          }}>
-                         <Icon name="user" size={17} color="#bdbdbd" />
+                         <Icon name="user" size={17} color="#111" />
                     </View>
                     <TextInput 
                          value={nama}
@@ -133,7 +133,7 @@ const signup = ({navigation}) => {
                               shadowOpacity: 0.5,
                               shadowRadius: 4,
                          }}>
-                         <Icon name="envelope" size={17} color="#bdbdbd" />
+                         <Icon name="envelope" size={17} color="#111" />
                     </View>
                     <TextInput 
                          value={email}
@@ -182,7 +182,7 @@ const signup = ({navigation}) => {
                               shadowOpacity: 0.5,
                               shadowRadius: 4,
                          }}>
-                         <Icon name="lock" size={17} color="#bdbdbd" />
+                         <Icon name="lock" size={17} color="#111" />
                     </View>
                     <TextInput 
                          value={password}
@@ -232,7 +232,7 @@ const signup = ({navigation}) => {
                               shadowOpacity: 0.5,
                               shadowRadius: 4,
                          }}>
-                         <Icon name="lock" size={17} color="#bdbdbd" />
+                         <Icon name="lock" size={17} color="#111" />
                     </View>
                     <TextInput 
                          value={ConfirmPassword}

@@ -65,7 +65,7 @@ const login = ({ navigation }) => {
                               shadowOpacity: 0.5,
                               shadowRadius: 4,
                          }}>
-                         <Icon name="envelope" size={17} color="#bdbdbd" />
+                         <Icon name="envelope" size={17} color="#111" />
                     </View>
                     <TextInput
                          value={email}
@@ -115,7 +115,7 @@ const login = ({ navigation }) => {
                               shadowOpacity: 0.5,
                               shadowRadius: 4,
                          }}>
-                         <Icon name="lock" size={17} color="#bdbdbd" />
+                         <Icon name="lock" size={17} color="#111" />
                     </View>
                     <TextInput
                          value={password}
@@ -139,6 +139,7 @@ const login = ({ navigation }) => {
                </View>
 
                <TouchableOpacity
+                    onPress={() => navigation.navigate('home')}
                     style={{
                          backgroundColor: '#72A152',
                          paddingVertical: 10,
