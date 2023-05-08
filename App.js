@@ -25,6 +25,9 @@ function App() {
         <Stack.Screen name="splashScreen" component={splashScreen} />
         <Stack.Screen name="materi" component={materi} />
         <Stack.Screen name="isiMateri" component={isiMateri} />
+        <Stack.Screen name="menuKuis" component={menuKuis} />
+        <Stack.Screen name="home" component={home} />
+        
       </Stack.Navigator>
     </NavigationContainer>
   );
