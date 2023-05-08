@@ -162,6 +162,7 @@ const menuKuis = ({ navigation }) => {
                          <Icon name="chart-bar" size={20} color="#111"/> 
                     </TouchableOpacity>
                     <TouchableOpacity
+                         onPress={() => navigation.navigate('profil')}
                          style={{
                               flex: 1, 
                               justifyContent: 'center', 

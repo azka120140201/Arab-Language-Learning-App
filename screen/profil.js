@@ -3,64 +3,51 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
-const home = ({ navigation }) => {
+const profil = ({ navigation }) => {
     
      return (
           <View
                style={{
                     flex: 1,
                     backgroundColor: '#F9F6EE',
-               }}
-          >
+               }}>
                <View
                     style={{
                          flex: 0.9,
-                         alignItems: 'center',
-                         marginTop: 0,
-                    }}
-               >
-                    <Image
-                         source={require('../src/images/Logo.png')}
+               
+                    }}>
+                    <TouchableOpacity  
+                         onPress={() => navigation.goBack()}
                          style={{
-                              width: 150,
-                              height: 150,
-                            
-                              marginTop: 60,
-
-                              shadowColor: 'black',
-                              shadowOffset: { width: 0, height: 2 },
-                              shadowOpacity: 0.5,
-                              shadowRadius: 4,
-                         }} />
-
-                    <Text style={{ fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
-
-                    <TouchableOpacity
-                         onPress={() => navigation.navigate('materi')}
-                    style={{
-                         backgroundColor: '#72A152',
-                         paddingVertical: 10,
-                         paddingHorizontal: 50,
-                         marginTop: 100,
-                         marginHorizontal: 20,
-                         borderRadius: 5,
-                         elevation: 10,
-
-                         shadowColor: 'black',
-                         shadowOffset: { width: 0, height: 2 },
-                         shadowOpacity: 0.5,
-                         shadowRadius: 4,
-                    }}
-               >
-                    <Text
-                         style={{
-                              color: '#ffffff',
-                              textAlign: 'center',
-                              fontWeight: 'bold'
+                              marginTop: 21,
+                              marginLeft: 21
                          }}>
-                         Lesson
-                    </Text>
-               </TouchableOpacity>
+                         <Icon name="chevron-left" size={17} color="#111"/> 
+                    </TouchableOpacity>
+                    
+                    <View 
+                         style={{
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              
+                         }}>
+                         <TouchableOpacity  
+                              onPress={() => navigation.goBack()}
+                              style={{
+                                   backgroundColor: '#ababab',
+                                   paddingVertical: 10,
+                                   paddingHorizontal: 10,
+                                   borderRadius: 50
+                              }}>
+                              <Icon name="user" size={40} color="#111"/> 
+                         </TouchableOpacity>
+
+
+
+                    
+                    </View>
+                   
+                    
                </View>
 
 
@@ -95,24 +82,19 @@ const home = ({ navigation }) => {
                               <Icon name="chart-bar" size={20} color="#111"/> 
                          </TouchableOpacity>
                          <TouchableOpacity
-                              onPress={() => navigation.navigate('profil')}
+                               onPress={() => navigation.navigate('home')}
                               style={{
                                    flex: 1, 
                                    justifyContent: 'center', 
                                    alignItems: 'center'
                               }}
                          >
-                              <Icon name="user" size={20} color="#111"/> 
+                              <Icon name="home" size={20} color="#111"/> 
                          </TouchableOpacity>
                          
                     </View>     
-
                </View>
-
-
-              
-
           </View>
      );
 }
-export default home;
+export default profil;

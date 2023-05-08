@@ -1,7 +1,7 @@
-import React, {Component, useEffect, useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import { StackActions } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { View, Text, Image} from 'react-native';
+import { useFonts } from 'expo-font';
+
 
 
 const splashScreen = ({ navigation }) => {
@@ -11,6 +11,15 @@ const splashScreen = ({ navigation }) => {
           }, 3000);
           
      })
+
+     const [loaded] = useFonts({
+          SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
+        });
+
+     if (!loaded) {
+     return null;
+     }
+
      return (
           <View
                style={{
@@ -38,7 +47,7 @@ const splashScreen = ({ navigation }) => {
                               shadowRadius: 4,
                          }} />
 
-                    <Text style={{ fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', fontFamily: 'SpaceGrotesk' }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
                </View>
           </View>
      );

@@ -1,6 +1,7 @@
 import React, {Component, useEffect, useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useFonts } from 'expo-font';
 
 
 
@@ -9,6 +10,14 @@ const signup = ({navigation}) => {
      const [password, setPassword] = useState('');
      const [nama, setNama] = useState('');
      const [ConfirmPassword, setConfirmPassword] = useState('');
+
+     const [loaded] = useFonts({
+          SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
+        });
+
+     if (!loaded) {
+     return null;
+     }
      
 
      return (
@@ -50,8 +59,8 @@ const signup = ({navigation}) => {
                          }}
                     />
                
-                    <Text style={{fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{color: '#72A152'}}>ARAB</Text></Text>
-                    <Text style={{fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Sign-up</Text>
+                    <Text style={{fontSize: 24, fontWeight: 'bold', fontFamily: 'SpaceGrotesk'}}>DARSU<Text style={{color: '#72A152'}}>ARAB</Text></Text>
+                    <Text style={{fontSize: 20, fontWeight: 'bold', marginBottom: 20, fontFamily: 'SpaceGrotesk' }}>Sign-up</Text>
                </View>
 
 
@@ -59,7 +68,8 @@ const signup = ({navigation}) => {
                     style={{
                          marginTop: 8,
                          marginLeft: 21,
-                         marginBottom: -8
+                         marginBottom: -8,
+                         fontFamily: 'SpaceGrotesk'
                     }}
                >Nama</Text>
                <View style={{
@@ -94,6 +104,7 @@ const signup = ({navigation}) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
 
                               shadowColor: 'black',
                               shadowOffset: { width: 0, height: 2 },
@@ -110,7 +121,8 @@ const signup = ({navigation}) => {
                     style={{
                          marginTop: 8,
                          marginLeft: 21,
-                         marginBottom: -8
+                         marginBottom: -8,
+                         fontFamily: 'SpaceGrotesk'
                     }}
                >Email</Text>
                <View style={{
@@ -145,6 +157,7 @@ const signup = ({navigation}) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
 
                               shadowColor: 'black',
                               shadowOffset: { width: 0, height: 2 },
@@ -166,6 +179,7 @@ const signup = ({navigation}) => {
                          flexDirection: 'row',
                          marginHorizontal: 20,
                          marginTop: 10,
+                         fontFamily: 'SpaceGrotesk',
                     }}>
                     <View 
                          style={{
@@ -194,6 +208,7 @@ const signup = ({navigation}) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
 
                               shadowColor: 'black',
                               shadowOffset: { width: 0, height: 2 },
@@ -216,6 +231,7 @@ const signup = ({navigation}) => {
                          flexDirection: 'row',
                          marginHorizontal: 20,
                          marginTop: 10,
+                         fontFamily: 'SpaceGrotesk'
                     }}>
                     <View 
                          style={{
@@ -244,6 +260,7 @@ const signup = ({navigation}) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
 
                               shadowColor: 'black',
                               shadowOffset: { width: 0, height: 2 },
@@ -275,7 +292,8 @@ const signup = ({navigation}) => {
                          style={{
                               color: '#ffffff',
                               textAlign: 'center',
-                              fontWeight: 'bold'
+                              fontWeight: 'bold',
+                              fontFamily: 'SpaceGrotesk'
                          }}>
                          Sing-Up
                     </Text>

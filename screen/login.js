@@ -1,25 +1,34 @@
 import React, {Component, useEffect, useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useFonts } from 'expo-font';
 
 
 const login = ({ navigation }) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
+
+     const [loaded] = useFonts({
+          SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
+        });
+
+     if (!loaded) {
+     return null;
+     }
+
      return (
           <View
                style={{
                     flex: 1,
                     backgroundColor: '#F9F6EE',
-               }}
-          >
+                    
+               }}>
                <View
                     style={{
                          justifyContent: 'center',
                          alignItems: 'center',
                          marginTop: 50,
-                    }}
-               >
+                    }}>
                     <Image
                          source={require('../src/images/Logo.png')}
                          style={{
@@ -33,8 +42,8 @@ const login = ({ navigation }) => {
                               shadowRadius: 4,
                          }} />
 
-                    <Text style={{ fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Log-in</Text>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold',fontFamily: 'SpaceGrotesk' }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20,fontFamily: 'SpaceGrotesk' }}>Log-in</Text>
                </View>
 
 
@@ -42,7 +51,8 @@ const login = ({ navigation }) => {
                     style={{
                          marginTop: 8,
                          marginLeft: 21,
-                         marginBottom: -8
+                         marginBottom: -8,
+                         fontFamily: 'SpaceGrotesk'
                     }}
                >Email</Text>
                <View style={{
@@ -77,6 +87,7 @@ const login = ({ navigation }) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
 
                               shadowColor: 'black',
                               shadowOffset: { width: 0, height: 2 },
@@ -92,7 +103,8 @@ const login = ({ navigation }) => {
                     style={{
                          marginTop: 8,
                          marginLeft: 21,
-                         marginBottom: -8
+                         marginBottom: -8,
+                         fontFamily: 'SpaceGrotesk'
                     }}
                >Password</Text>
                <View style={{
@@ -127,6 +139,7 @@ const login = ({ navigation }) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
 
                               shadowColor: 'black',
                               shadowOffset: { width: 0, height: 2 },
@@ -158,7 +171,8 @@ const login = ({ navigation }) => {
                          style={{
                               color: '#ffffff',
                               textAlign: 'center',
-                              fontWeight: 'bold'
+                              fontWeight: 'bold',
+                              fontFamily: 'SpaceGrotesk',
                          }}>
                          Login
                     </Text>
@@ -173,7 +187,7 @@ const login = ({ navigation }) => {
                               marginTop: 5,
                          }}
                     >
-                         <Text style={{ color: '#72A152', fontWeight: 'bold' }}>Sign-up</Text>
+                         <Text style={{ color: '#72A152', fontWeight: 'bold', fontFamily: 'SpaceGrotesk' }}>Sign-up</Text>
                     </TouchableOpacity>
                </View>
 

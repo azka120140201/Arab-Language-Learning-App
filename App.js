@@ -11,6 +11,7 @@ import splashScreen from './screen/splashScreen';
 import menuKuis from './screen/menuKuis';
 import home from './screen/home';
 import materi from './screen/materi';
+import profil from './screen/profil';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ function App() {
         <Stack.Screen name="materi" component={materi} />
         <Stack.Screen name="menuKuis" component={menuKuis} />
         <Stack.Screen name="home" component={home} />
+        <Stack.Screen name="profil" component={profil} />
       </Stack.Navigator>
     </NavigationContainer>
   );
