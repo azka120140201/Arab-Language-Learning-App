@@ -37,6 +37,7 @@ const home = ({ navigation }) => {
                     <Text style={{ fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
 
                     <TouchableOpacity
+                         onPress={() => navigation.navigate('materi')}
                     style={{
                          backgroundColor: '#72A152',
                          paddingVertical: 10,
