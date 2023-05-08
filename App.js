@@ -6,8 +6,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import login from './screen/login';
-import signup from './screen/signup';
+import signup from './screen/signUp';
 import splashScreen from './screen/splashScreen';
+import menuKuis from './screen/menuKuis';
+import home from './screen/home';
 import materi from './screen/materi';
 import isiMateri from './screen/isiMateri';
 const Stack = createNativeStackNavigator();

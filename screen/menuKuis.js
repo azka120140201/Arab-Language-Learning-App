@@ -3,7 +3,7 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
-const login = ({ navigation }) => {
+const menuKuis = ({ navigation }) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
      return (
@@ -21,7 +21,9 @@ const login = ({ navigation }) => {
                          marginTop: 25,
                     }}>
                          <View>
-                              <TouchableOpacity>
+                              <TouchableOpacity
+                                   onPress={() => navigation.goBack()}
+                              >
                                    <Icon name="chevron-left" size={17} color="#111"/> 
                               </TouchableOpacity>
                          </View>
@@ -141,6 +143,7 @@ const login = ({ navigation }) => {
                }}>
                <View style={{marginTop: 20, flexDirection: 'row'}}>
                     <TouchableOpacity 
+                         onPress={() => navigation.navigate('home')}
                          style={{
                               flex: 1, 
                               justifyContent: 'center', 
@@ -176,4 +179,4 @@ const login = ({ navigation }) => {
            
      );
 }
-export default login;
+export default menuKuis;
