@@ -9,13 +9,13 @@ const isiMateri = () => {
             <Text style={{ fontFamily: 'SpaceGrotesk', color: '#212427', fontSize: 96, fontWeight: 'bold', textAlign: 'center', marginTop: 75 }}>آ</Text>
           </View>
           <View style={{ flexDirection: 'row', marginTop: 20, justifyContent: 'space-between' }}>
-            <View style={{ backgroundColor: '#F9F6EE', width: 89, height: 37, borderRadius: 10, shadowColor: '#72A152', shadowOffset: { width: 0, height: 2 }, borderWidth: 1, borderColor: '#72A152', }}>
+            <View style={{ backgroundColor: '#F9F6EE', width: '30%', height: 37, borderRadius: 10, shadowColor: '#72A152', shadowOffset: { width: 0, height: 2 }, borderWidth: 1, borderColor: '#72A152', }}>
               <Text style={{ fontFamily: 'SpaceGrotesk', color: '#212427', fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginTop: 5 }}>aa</Text>
             </View>
-            <View style={{ backgroundColor: '#F9F6EE', width: 89, height: 37, borderRadius: 10, shadowColor: '#72A152', shadowOffset: { width: 0, height: 2 }, borderWidth: 1, borderColor: '#72A152', }}>
+            <View style={{ backgroundColor: '#F9F6EE', width: '30%', height: 37, borderRadius: 10, shadowColor: '#72A152', shadowOffset: { width: 0, height: 2 }, borderWidth: 1, borderColor: '#72A152', }}>
               <Text style={{ fontFamily: 'SpaceGrotesk', color: '#212427', fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginTop: 5 }}>ii</Text>
             </View>
-            <View style={{ backgroundColor: '#F9F6EE', width: 89, height: 37, borderRadius: 10, shadowColor: '#72A152', shadowOffset: { width: 0, height: 2 }, borderWidth: 1, borderColor: '#72A152', }}>
+            <View style={{ backgroundColor: '#F9F6EE', width: '30%', height: 37, borderRadius: 10, shadowColor: '#72A152', shadowOffset: { width: 0, height: 2 }, borderWidth: 1, borderColor: '#72A152', }}>
               <Text style={{ fontFamily: 'SpaceGrotesk', color: '#212427', fontSize: 20, fontWeight: 'bold', textAlign: 'center', marginTop: 5 }}>uu</Text>
             </View>
           </View>
