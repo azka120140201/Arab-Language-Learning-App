@@ -144,7 +144,7 @@ const login = ({navigation}) => {
                               marginTop: 5,
                          }}
                     >
-                         <Text style={{color: '#72A152', fontWeight: 'bold'}}>Sing-up</Text>
+                         <Text style={{color: '#72A152', fontWeight: 'bold'}}>Sign-up</Text>
                     </TouchableOpacity>
                </View>
 

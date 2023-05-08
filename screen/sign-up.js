@@ -31,7 +31,7 @@ const login = (navigation) => {
                     />
                
                     <Text style={{fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{color: '#72A152'}}>ARAB</Text></Text>
-                    <Text style={{fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Log-in</Text>
+                    <Text style={{fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Sign-up</Text>
                </View>
 
 
@@ -161,7 +161,7 @@ const login = (navigation) => {
                          marginLeft: 21,
                          marginBottom: -8
                     }}
-               >Password</Text>
+               >Confirm Password</Text>
                <View style={{
                          flexDirection: 'row',
                          marginHorizontal: 20,
