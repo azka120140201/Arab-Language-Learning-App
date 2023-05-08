@@ -14,8 +14,7 @@ const signup = ({navigation}) => {
      return (
           <View 
                style={{
-                    flex: 1, 
-                    backgroundColor: '#F9F6EE', 
+                    flex: 1,  
                }}
           >
                
