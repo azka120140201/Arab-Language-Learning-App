@@ -58,7 +58,7 @@ const login = ({ navigation }) => {
                                    />
                                    <Text 
                                         style={{
-                                             marginRight:5,
+                                        marginRight:5,
                                              fontWeight: 'bold'
                                         }}
                                    >Listening</Text>
