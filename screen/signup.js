@@ -25,16 +25,14 @@ const signup = ({navigation}) => {
                style={{
                     flex: 1,  
                     backgroundColor: '#F9F6EE'
-               }}
-          >
+               }}>
                
                     <TouchableOpacity  
                          onPress={() => navigation.goBack()}
                          style={{
                               marginTop: 21,
                               marginLeft: 21
-                         }}
-                    >
+                         }}>
                          <Icon name="chevron-left" size={17} color="#111"/> 
                     </TouchableOpacity>
                
