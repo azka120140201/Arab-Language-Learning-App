@@ -3,33 +3,38 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
-const login = ({navigation}) => {
+const login = ({ navigation }) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
      return (
-          <View 
+          <View
                style={{
-                    flex: 1, 
-                    backgroundColor: '#F9F6EE', 
+                    flex: 1,
+                    backgroundColor: '#F9F6EE',
                }}
           >
-               <View 
+               <View
                     style={{
-                         justifyContent: 'center', 
-                         alignItems: 'center', 
-                         marginTop: 50, 
-                         }}
+                         justifyContent: 'center',
+                         alignItems: 'center',
+                         marginTop: 50,
+                    }}
                >
-                    <Image 
+                    <Image
                          source={require('../src/images/Logo.png')}
-                         style={{width: 150, 
+                         style={{
+                              width: 150,
                               height: 150,
-                              marginBottom: -20
-                         }}
-                    />
-               
-                    <Text style={{fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{color: '#72A152'}}>ARAB</Text></Text>
-                    <Text style={{fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Log-in</Text>
+                              marginBottom: -20,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
+                         }} />
+
+                    <Text style={{ fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20 }}>Log-in</Text>
                </View>
 
 
@@ -41,23 +46,28 @@ const login = ({navigation}) => {
                     }}
                >Email</Text>
                <View style={{
-                         flexDirection: 'row',
-                         marginHorizontal: 20,
-                         marginTop: 10,
-                    }}>
-                    <View 
+                    flexDirection: 'row',
+                    marginHorizontal: 20,
+                    marginTop: 10,
+               }}>
+                    <View
                          style={{
-                              justifyContent: 'center', 
+                              justifyContent: 'center',
                               alignItems: 'center',
                               backgroundColor: '#ffff',
                               width: 50,
                               borderTopLeftRadius: 5,
                               borderBottomLeftRadius: 5,
                               elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}>
-                         <Icon name="envelope" size={25} color="#bdbdbd" />
+                         <Icon name="envelope" size={17} color="#bdbdbd" />
                     </View>
-                    <TextInput 
+                    <TextInput
                          value={email}
                          style={{
                               backgroundColor: '#ffff',
@@ -67,14 +77,18 @@ const login = ({navigation}) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}
                          placeholder='Masukan Email'
-                         onChangeText={text => setEmail(text)}
-                    />
+                         onChangeText={text => setEmail(text)} />
                </View>
 
 
-               <Text 
+               <Text
                     style={{
                          marginTop: 8,
                          marginLeft: 21,
@@ -82,23 +96,28 @@ const login = ({navigation}) => {
                     }}
                >Password</Text>
                <View style={{
-                         flexDirection: 'row',
-                         marginHorizontal: 20,
-                         marginTop: 10,
-                    }}>
-                    <View 
+                    flexDirection: 'row',
+                    marginHorizontal: 20,
+                    marginTop: 10,
+               }}>
+                    <View
                          style={{
-                              justifyContent: 'center', 
+                              justifyContent: 'center',
                               alignItems: 'center',
                               backgroundColor: '#ffff',
                               width: 50,
                               borderTopLeftRadius: 5,
                               borderBottomLeftRadius: 5,
                               elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}>
-                         <Icon name="lock" size={25} color="#bdbdbd" />
+                         <Icon name="lock" size={17} color="#bdbdbd" />
                     </View>
-                    <TextInput 
+                    <TextInput
                          value={password}
                          style={{
                               backgroundColor: '#ffffff',
@@ -108,11 +127,15 @@ const login = ({navigation}) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}
                          placeholder='Masukan Password'
                          onChangeText={text => setPassword(text)}
-                         secureTextEntry={true}
-                    />
+                         secureTextEntry={true} />
                </View>
 
                <TouchableOpacity
@@ -123,9 +146,14 @@ const login = ({navigation}) => {
                          marginHorizontal: 20,
                          borderRadius: 5,
                          elevation: 10,
+
+                         shadowColor: 'black',
+                         shadowOffset: { width: 0, height: 2 },
+                         shadowOpacity: 0.5,
+                         shadowRadius: 4,
                     }}
                >
-                    <Text 
+                    <Text
                          style={{
                               color: '#ffffff',
                               textAlign: 'center',
@@ -137,18 +165,18 @@ const login = ({navigation}) => {
 
                <View>
                     <TouchableOpacity
-                         onPress={() => navigation.navigate('sing-up')}
+                         onPress={() => navigation.navigate('signup')}
                          style={{
                               justifyContent: 'center',
                               marginLeft: 21,
                               marginTop: 5,
                          }}
                     >
-                         <Text style={{color: '#72A152', fontWeight: 'bold'}}>Sign-up</Text>
+                         <Text style={{ color: '#72A152', fontWeight: 'bold' }}>Sign-up</Text>
                     </TouchableOpacity>
                </View>
 
-               
+
           </View>
      );
 }

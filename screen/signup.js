@@ -3,11 +3,14 @@ import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 
-const login = (navigation) => {
+
+const signup = ({navigation}) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
      const [nama, setNama] = useState('');
      const [ConfirmPassword, setConfirmPassword] = useState('');
+     
+
      return (
           <View 
                style={{
@@ -15,18 +18,35 @@ const login = (navigation) => {
                     backgroundColor: '#F9F6EE', 
                }}
           >
+               
+                    <TouchableOpacity  
+                         onPress={() => navigation.goBack()}
+                         style={{
+                              marginTop: 21,
+                              marginLeft: 21
+                         }}
+                    >
+                         <Icon name="chevron-left" size={17} color="#111"/> 
+                    </TouchableOpacity>
+               
+
                <View 
                     style={{
                          justifyContent: 'center', 
                          alignItems: 'center', 
-                         marginTop: 10, 
+                         marginTop: -11, 
                          }}
                >
                     <Image 
                          source={require('../src/images/Logo.png')}
                          style={{width: 150, 
                               height: 150,
-                              marginBottom: -20
+                              marginBottom: -20,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}
                     />
                
@@ -56,8 +76,13 @@ const login = (navigation) => {
                               borderTopLeftRadius: 5,
                               borderBottomLeftRadius: 5,
                               elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}>
-                         <Icon name="user" size={25} color="#bdbdbd" />
+                         <Icon name="user" size={17} color="#bdbdbd" />
                     </View>
                     <TextInput 
                          value={nama}
@@ -69,6 +94,11 @@ const login = (navigation) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}
                          placeholder='Masukan Nama'
                          onChangeText={text => setNama(text)}
@@ -97,8 +127,13 @@ const login = (navigation) => {
                               borderTopLeftRadius: 5,
                               borderBottomLeftRadius: 5,
                               elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}>
-                         <Icon name="envelope" size={25} color="#bdbdbd" />
+                         <Icon name="envelope" size={17} color="#bdbdbd" />
                     </View>
                     <TextInput 
                          value={email}
@@ -110,6 +145,11 @@ const login = (navigation) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}
                          placeholder='Masukan Email'
                          onChangeText={text => setEmail(text)}
@@ -136,8 +176,13 @@ const login = (navigation) => {
                               borderTopLeftRadius: 5,
                               borderBottomLeftRadius: 5,
                               elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}>
-                         <Icon name="lock" size={25} color="#bdbdbd" />
+                         <Icon name="lock" size={17} color="#bdbdbd" />
                     </View>
                     <TextInput 
                          value={password}
@@ -149,6 +194,11 @@ const login = (navigation) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}
                          placeholder='Masukan Password'
                          onChangeText={text => setPassword(text)}
@@ -176,8 +226,13 @@ const login = (navigation) => {
                               borderTopLeftRadius: 5,
                               borderBottomLeftRadius: 5,
                               elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}>
-                         <Icon name="lock" size={25} color="#bdbdbd" />
+                         <Icon name="lock" size={17} color="#bdbdbd" />
                     </View>
                     <TextInput 
                          value={ConfirmPassword}
@@ -189,6 +244,11 @@ const login = (navigation) => {
                               paddingVertical: 10,
                               elevation: 10,
                               paddingLeft: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
                          }}
                          placeholder='Konfirmasi Password'
                          onChangeText={text => setConfirmPassword(text)}
@@ -204,6 +264,11 @@ const login = (navigation) => {
                          marginHorizontal: 20,
                          borderRadius: 5,
                          elevation: 10,
+
+                         shadowColor: 'black',
+                         shadowOffset: { width: 0, height: 2 },
+                         shadowOpacity: 0.5,
+                         shadowRadius: 4,
                     }}
                >
                     <Text 
@@ -218,4 +283,4 @@ const login = (navigation) => {
           </View>
      );
 }
-export default login;
+export default signup;
