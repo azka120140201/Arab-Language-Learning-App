@@ -1,4 +1,4 @@
-# Arab-Language-Learning-App
+# DarsuArab
 
 DarsuArab adalah sebuah aplikasi belajar bahasa Arab berbasis mobile yang bertujuan untuk membantu pengguna belajar bahasa Arab dengan mudah dan menyenangkan. Aplikasi ini menyediakan berbagai fitur yang dapat membantu pengguna meningkatkan kemampuan bahasa Arab mereka.
 
