@@ -14,7 +14,49 @@ Aplikasi ini dibangun menggunakan teknologi React Native, sehingga aplikasi dapa
 - React Navigation untuk navigasi antar layar
 - Firebase untuk autentikasi dan penyimpanan data
 
-Cara Menggunakan Aplikasi
-Untuk menggunakan aplikasi ini, pengguna dapat mengunduh aplikasi di Google Play Store atau App Store. Setelah mengunduh dan memasang aplikasi, pengguna dapat mengakses berbagai fitur yang disediakan.
+## Cara Mengunduh dan Menjalankan Aplikasi DarsuArab
+
+1. Pastikan Anda telah menginstal Expo CLI di komputer Anda. Jika belum, Anda dapat menginstalnya dengan menjalankan perintah berikut melalui terminal atau command prompt:
+
+    ```
+    npm install -g expo-cli
+    ```
+
+2. Buka terminal atau command prompt, lalu navigasikan ke direktori tempat Anda ingin menyimpan proyek React Native.
+
+3. Clone repositori GitHub yang berisi aplikasi React Native. Gunakan perintah berikut untuk mengkloning repositori:
+
+    ```
+    git clone <repository_url>
+    ```
+
+    Pastikan untuk mengganti `<repository_url>` dengan URL repositori GitHub yang sesuai.
+
+4. Setelah proses cloning selesai, navigasikan ke direktori proyek yang baru dibuat:
+
+    ```
+    cd <project_directory>
+    ```
+
+5. Jalankan perintah berikut untuk menginstal dependensi proyek:
+
+    ```
+    npm install
+    ```
+
+    Perintah ini akan mengunduh dan menginstal semua dependensi yang diperlukan untuk menjalankan aplikasi.
+
+6. Jika Anda menggunakan Expo, Anda dapat menjalankan aplikasi dengan perintah:
+
+    ```
+    expo start
+    ```
+
+    Perintah ini akan memulai server pengembangan Expo dan akan menampilkan QR code di terminal atau command prompt.
+
+7. Buka aplikasi Expo Go di perangkat Anda (tersedia di App Store atau Google Play Store) dan pindai QR code yang ditampilkan di terminal atau command prompt.
+
+8. Aplikasi React Native akan mulai dijalankan di perangkat Anda melalui Expo Go.
+
 
 
