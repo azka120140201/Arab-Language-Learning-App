@@ -1,6 +1,6 @@
 # DarsuArab
 
-DarsuArab adalah sebuah aplikasi belajar bahasa Arab berbasis mobile yang bertujuan untuk membantu pengguna dalam belajar bahasa Arab dengan mudah dan menyenangkan. Aplikasi ini menyediakan berbagai fitur yang dapat membantu pengguna meningkatkan kemampuan bahasa Arab mereka. Berikut ini fitur yang terdapat pada aplikasi DarsuArab : 
+DarsuArab adalah sebuah aplikasi belajar bahasa Arab berbasis mobile yang bertujuan untuk membantu pengguna dalam belajar bahasa Arab dengan mudah dan menyenangkan. Aplikasi ini menyediakan berbagai fitur yang dapat membantu pengguna meningkatkan kemampuan bahasa Arab mereka. Aplikasi ini dapat Berikut ini fitur yang terdapat pada aplikasi DarsuArab : 
 
 Fitur
 1. Kuis
