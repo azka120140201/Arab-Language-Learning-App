@@ -1,100 +1,104 @@
-import React, {Component, useEffect, useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native'
 
+export default ProfileView = () => {
+  const data = [
+    { id: 1, image: 'https://static.vecteezy.com/system/resources/previews/006/417/311/original/outline-email-icon-isolated-on-grey-background-open-envelope-pictogram-line-mail-symbol-for-website-design-mobile-application-ui-illustration-eps10-free-vector.jpg', title: 'email' },
+    {
+      id: 2,
+      image: 'https://img.icons8.com/color/70/000000/administrator-male.png',
+      title: 'Password',
+    },
+    { id: 3, image: 'https://img.icons8.com/color/70/000000/filled-like.png', title: 'Score' },
+    { id: 4, image: 'https://img.icons8.com/color/70/000000/facebook-like.png', title: 'Logout' },
+   
+  ]
 
-const profil = ({ navigation }) => {
-    
-     return (
-          <View
-               style={{
-                    flex: 1,
-                    backgroundColor: '#F9F6EE',
-               }}>
-               <View
-                    style={{
-                         flex: 0.9,
-               
-                    }}>
-                    <TouchableOpacity  
-                         onPress={() => navigation.goBack()}
-                         style={{
-                              marginTop: 21,
-                              marginLeft: 21
-                         }}>
-                         <Icon name="chevron-left" size={17} color="#111"/> 
-                    </TouchableOpacity>
-                    
-                    <View 
-                         style={{
-                              justifyContent: 'center',
-                              alignItems: 'center',
-                              
-                         }}>
-                         <TouchableOpacity  
-                              onPress={() => navigation.goBack()}
-                              style={{
-                                   backgroundColor: '#ababab',
-                                   paddingVertical: 10,
-                                   paddingHorizontal: 10,
-                                   borderRadius: 50
-                              }}>
-                              <Icon name="user" size={40} color="#111"/> 
-                         </TouchableOpacity>
+  const [options, setOptions] = useState(data)
 
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <View style={styles.headerContent}>
+          <Image
+            style={styles.avatar}
+            source={{ uri: 'https://thumbs.dreamstime.com/b/businesswoman-avatar-flat-design-businesswoman-design-woman-business-management-corporate-job-occupation-worker-theme-vector-163223630.jpg' }}
+          />
+          <Text style={styles.name}>Hanna Lee</Text>
+          <Text style={styles.name}>I like the music</Text>
+        </View>
+      </View>
 
-
-                    
-                    </View>
-                   
-                    
-               </View>
-
-
-
-
-               <View
-                    style={{
-                         flex: 0.1,
-                         backgroundColor: '#93C572',
-                         borderTopLeftRadius: 15,
-                         borderTopRightRadius: 15
-                    }}>
-
-                    <View style={{marginTop: 20, flexDirection: 'row'}}>
-                         <TouchableOpacity 
-                              onPress={() => navigation.navigate('menuKuis')}
-                              style={{
-                                   flex: 1, 
-                                   justifyContent: 'center', 
-                                   alignItems: 'center'
-                              }}
-                         >
-                              <Icon name="quidditch" size={20} color="#111"/> 
-                         </TouchableOpacity>
-                         <TouchableOpacity
-                              style={{
-                                   flex: 1, 
-                                   justifyContent: 'center', 
-                                   alignItems: 'center'
-                              }}
-                         >
-                              <Icon name="chart-bar" size={20} color="#111"/> 
-                         </TouchableOpacity>
-                         <TouchableOpacity
-                               onPress={() => navigation.navigate('home')}
-                              style={{
-                                   flex: 1, 
-                                   justifyContent: 'center', 
-                                   alignItems: 'center'
-                              }}
-                         >
-                              <Icon name="home" size={20} color="#111"/> 
-                         </TouchableOpacity>
-                         
-                    </View>     
-               </View>
-          </View>
-     );
+      <View style={styles.body}>
+        <FlatList
+          style={styles.container}
+          enableEmptySections={true}
+          data={options}
+          keyExtractor={item => item.id}
+          renderItem={({ item }) => {
+            return (
+              <TouchableOpacity>
+                <View style={styles.box}>
+                  <Image style={styles.icon} source={{ uri: item.image }} />
+                  <Text style={styles.title}>{item.title}</Text>
+                  <Image
+                    style={styles.btn}
+                    source={{ uri: 'https://img.icons8.com/customer/office/40' }}
+                  />
+                </View>
+              </TouchableOpacity>
+            )
+          }}
+        />
+      </View>
+    </View>
+  )
 }
-export default profil;
+
+const styles = StyleSheet.create({
+  header: {
+    backgroundColor: '#90EE90',
+  },
+  headerContent: {
+    padding: 30,
+    alignItems: 'center',
+  },
+  avatar: {
+    width: 130,
+    height: 130,
+    borderRadius: 63,
+    borderWidth: 4,
+    borderColor: '#000000',
+    marginBottom: 10,
+  },
+  icon: {
+    width: 40,
+    height: 40,
+  },
+  title: {
+    fontSize: 18,
+    color: '#000000',
+    marginLeft: 4,
+  },
+  btn: {
+    marginLeft: 'auto',
+    width: 40,
+    height: 40,
+  },
+  body: {
+    backgroundColor: '#E6E6FA',
+  },
+  box: {
+    padding: 5,
+    marginBottom: 2,
+    backgroundColor: '#FFFFFF',
+    flexDirection: 'row',
+    alignItems:'center',
+  },
+  username: {
+    color: '#20B2AA',
+    fontSize: 22,
+    alignSelf: 'center',
+    marginLeft: 10,
+  },
+})
