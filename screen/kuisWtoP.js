@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Alert, Button, StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "../assets/ProgressBar";
 
 export default class Quiz extends Component {
   constructor(props) {
@@ -12,27 +12,27 @@ export default class Quiz extends Component {
       questions: [
         {
           question: "What picture represents the word 'قِطٌّ'?",
-          options: ["https://png.pngtree.com/png-clipart/20221017/ourmid/pngtree-gambar-pensil-yang-imut-png-image_6350444.png", "https://png.pngtree.com/png-clipart/20221017/ourmid/pngtree-gambar-pensil-yang-imut-png-image_6350444.png", "https://png.pngtree.com/png-clipart/20221017/ourmid/pngtree-gambar-pensil-yang-imut-png-image_6350444.png", "https://png.pngtree.com/png-clipart/20221017/ourmid/pngtree-gambar-pensil-yang-imut-png-image_6350444.png"],
+          options: ["https://www.greeners.co/wp-content/uploads/2021/03/Kucing-Domestik-1.jpg", "https://asset.kompas.com/crops/ZooJx7Zw6jqaVJeVsWEEVyOkor0=/27x0:863x558/750x500/data/photo/2023/02/18/63f02d9393e94.jpg", "https://store.sirclo.com/blog/wp-content/uploads/2022/03/bisnis-ikan-hias.jpg", "https://d1vbn70lmn1nqe.cloudfront.net/prod/wp-content/uploads/2021/07/21063812/Ketahui-X-Fakta-tentang-Kura-Kura-Brazil.jpg"],
           correctAnswer: 0,
         },
         {
-          question: "What is the largest country in the world by area?",
-          options: ["Russia", "Canada", "China", "USA"],
+          question: "What picture represents the word 'أُمٌّ'",
+          options: ["https://i.pinimg.com/originals/46/3b/2d/463b2d66503541d4901b158356ccaad6.jpg", "https://1.vikiplatform.com/pr/15046pr/0ab3a3cb0a.jpg?x=b&s=590x330&q=h&e=t&f=t&cb=1", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUoooqgt3LQlxgOI3P0vWriPBt3i5OVN3UYg&usqp=CAU", "https://www.kanal247.com/images/media/photo/2021/07/22/0000077695.jpg"],
           correctAnswer: 0,
         },
         {
-          question: "What is the currency of Japan?",
-          options: ["Yen", "Dollar", "Euro", "Pound"],
+          question: "What picture represents the word 'قَلَمٌ رَصَاصٌ'",
+          options: ["https://i0.wp.com/magic-stores.com/wp-content/uploads/2021/08/%D8%AF%D9%81%D8%A7%D8%AA%D8%B1-%D8%B3%D9%84%D9%83-2.png?fit=2048%2C2048&ssl=1", "https://www.artigianiartstore.com/media/catalog/product/cache/230274f50c3fd7eca2d39dfa1bd6e08e/1/8/188220.jpg", "https://m.media-amazon.com/images/I/51VYMevfJZL._AC_UF1000,1000_QL80_.jpg", "https://cdn.salla.sa/qXqEV/mJm1Q0XCKhMOxNHsDVsG0ye0ckhe8QbVF1hbkMah.jpg"],
           correctAnswer: 0,
         },
         {
-          question: "What is the highest mountain in the world?",
-          options: ["Mount Everest", "K2", "Makalu", "Annapurna"],
+          question: "What picture represents the word 'أَصْفَرُ'",
+          options: ["https://vid.alarabiya.net/images/2022/08/07/eec81692-a1d7-45f4-8554-b38030f4c617/eec81692-a1d7-45f4-8554-b38030f4c617.jpg?crop=1:1&width=1000", "https://i.pinimg.com/originals/f0/1a/5b/f01a5b0786cf8f22737fa6dd15b680e8.jpg", "https://cdn.salla.sa/XzOPD/wPx4y4lVwZ3QBucjmq52Xe0ZYVagpBhg2fYBvN9K.png", "https://static.webteb.net/images/content/tbl_articles_article_25143_69779cd75a1-c7fe-453e-ba4b-e4866a52cb0c.jpg"],
           correctAnswer: 0,
         },
         {
-          question: "What is the capital of India?",
-          options: ["New Delhi", "Mumbai", "Kolkata", "Chennai"],
+          question: "What picture represents the word 'طَائِرَةٌ '",
+          options: ["https://argaamplus.s3.amazonaws.com/b4a71689-7895-4fd9-adbb-ccd743571718.png", "https://images.netdirector.co.uk/gforces-auto/image/upload/w_343,h_257,dpr_2.0,q_auto,c_fill,f_auto,fl_lossy/auto-client/38ae48607d71ab056341fed467a25591/768x576pxls.jpg", "https://m.al-sharq.com/get/maximage/20220823_1661252914-488.jpg?t=1661252915", "https://upload.wikimedia.org/wikipedia/commons/9/9e/Airbus_A380_Bourget_2017_n4.jpg"],
           correctAnswer: 0,
         },
       ],
@@ -180,12 +180,14 @@ const styles = StyleSheet.create({
   },
   column: {
     flex: 1,
+    margin: 20,
     justifyContent: "center",
     alignItems: "center",
   },
   image: {
     width: 100,
     height: 100,
+    borderRadius: 15,
     resizeMode: "cover",
   },
 });
