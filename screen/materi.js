@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { useFonts } from 'expo-font';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Materi = ({ navigation }) => {
   const [typeMateri, settypeMateri] = useState('');
@@ -19,7 +20,11 @@ const Materi = ({ navigation }) => {
 
   return (
     <View style={{ backgroundColor: '#F9F6EE', flex: 1, paddingHorizontal: 30, paddingTop: 30 }}>
-      <Text style={{ fontFamily: 'SpaceGrotesk', color:'#212427', fontSize: 32, fontWeight: 'bold', textAlign: 'left', paddingBottom: 30 }}>Arab Lessons</Text>
+      <TouchableOpacity onPress={() => navigation.goBack()} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
+        <Icon name="chevron-left" size={17} color="#111" />
+        <Text style={{ fontFamily: 'SpaceGrotesk', color:'#212427', fontSize: 20, fontWeight: 'bold', textAlign: 'left', paddingLeft: 10 }}></Text>
+      </TouchableOpacity>
+      <Text style={{ fontFamily: 'SpaceGrotesk', color:'#212427', fontSize: 32, fontWeight: 'bold', textAlign: 'left', marginTop: 20, paddingBottom: 30 }}>Arab Lessons</Text>
       
       <View style={{ marginTop: 30 }}>
         <TouchableOpacity style={{ backgroundColor: '#93C572', height: 74, borderRadius: 10, marginBottom: 20 }} onPress={handleLessonPress}>

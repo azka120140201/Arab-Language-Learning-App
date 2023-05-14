@@ -25,13 +25,13 @@ function App() {
       <Stack.Navigator
       initialRouteName='splashScreen'
       screenOptions={{headerShown: false}}>
+        <Stack.Screen name="splashScreen" component={splashScreen} />
         <Stack.Screen name="login" component={login} />
         <Stack.Screen name="signup" component={signup} />
-        <Stack.Screen name="splashScreen" component={splashScreen} />
+        <Stack.Screen name="home" component={home} />
         <Stack.Screen name="materi" component={materi} />
         <Stack.Screen name="isiMateri" component={isiMateri} />
         <Stack.Screen name="menuKuis" component={menuKuis} />
-        <Stack.Screen name="home" component={home} />
         {/* <Stack.Screen name="profil" component={profil} /> */}
         {/* <Stack.Screen name="Leaderboard" component={Leaderboard} /> */}
         <Stack.Screen name="kuisListening" component={kuisListening} />
