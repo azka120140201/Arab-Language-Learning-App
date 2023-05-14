@@ -1,5 +1,5 @@
-import React, {Component, useEffect, useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TextInput, TouchableOpacity, Alert, ActivityIndicator} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useFonts } from 'expo-font';
 
@@ -7,6 +7,41 @@ import { useFonts } from 'expo-font';
 const login = ({ navigation }) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
+     const [loading, setLoading] = useState({
+          loadingLogin:false,
+     })
+
+     const AuthLogin = async () =>{ 
+          try{
+               setLoading({
+                    loadingLogin:true
+               })
+               const response = await fetch('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBQDNj-ErcBzNzhWMa6uPMgC8t79YuXtnw', {
+                    method:"POST",
+                    headers:{
+                         'Content-type':'application/json'
+                    }, 
+                    body:JSON.stringify({
+                         email:email,
+                         password:password,
+                         returnSecureToken:true
+                    })
+               })
+               const resData = await response.json()
+               if(response.ok){
+                    await navigation.navigate('home')
+               }else{
+                    Alert.alert('An Error Occured!', resData.error.message,[{
+                         text:'Okay'
+                    },]);
+               }
+               setLoading({
+                    loadingLogin:false
+               })
+          }catch(error){
+               console.log(error)
+          }
+     };
 
      const [loaded] = useFonts({
           SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
@@ -152,7 +187,7 @@ const login = ({ navigation }) => {
                </View>
 
                <TouchableOpacity
-                    onPress={() => navigation.navigate('home')}
+                    onPress={AuthLogin}
                     style={{
                          backgroundColor: '#72A152',
                          paddingVertical: 10,
@@ -167,7 +202,7 @@ const login = ({ navigation }) => {
                          shadowRadius: 4,
                     }}
                >
-                    <Text
+                    {loading.loadingLogin ? <ActivityIndicator size="small" color="white"/> :<Text
                          style={{
                               color: '#ffffff',
                               textAlign: 'center',
@@ -175,7 +210,7 @@ const login = ({ navigation }) => {
                               fontFamily: 'SpaceGrotesk',
                          }}>
                          Login
-                    </Text>
+                    </Text>}
                </TouchableOpacity>
 
                <View>
