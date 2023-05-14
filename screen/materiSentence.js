@@ -9,47 +9,47 @@ const materiSentence = ({ navigation }) => {
   const questions = [
     {
       id: 1,
-      arabicLetter: 'آ',
+      arabicLetter: "Apa arti dari kalimat 'كم عمرك؟' dalam bahasa Indonesia?",
       options: [
-        { id: 1, text: 'a', isCorrect: true },
-        { id: 2, text: 'i', isCorrect: false },
-        { id: 3, text: 'u', isCorrect: false },
+        { id: 1, text: 'Apa kabarmu?', isCorrect: false },
+        { id: 2, text: 'Berapa usiamu?', isCorrect: true },
+        { id: 3, text: 'Di mana kamu tinggal?', isCorrect: false },
       ],
     },
     {
       id: 2,
-      arabicLetter: 'ب',
+      arabicLetter: "Bagaimana menerjemahkan kalimat 'أنا أحب القراءة' dalam bahasa Inggris?",
       options: [
-        { id: 1, text: 'b', isCorrect: true },
-        { id: 2, text: 'p', isCorrect: false },
-        { id: 3, text: 't', isCorrect: false },
+        { id: 1, text: 'I like to read', isCorrect: true },
+        { id: 2, text: 'I like to watch TV', isCorrect: false },
+        { id: 3, text: 'I like to play football', isCorrect: false },
       ],
     },
     {
       id: 3,
-      arabicLetter: 'ج',
+      arabicLetter: "Apa arti dari kalimat 'من فضلك، أغلق النافذة' dalam bahasa Inggris?",
       options: [
-        { id: 1, text: 'j', isCorrect: true },
-        { id: 2, text: 'k', isCorrect: false },
-        { id: 3, text: 'z', isCorrect: false },
+        { id: 1, text: 'ease open the door', isCorrect: false },
+        { id: 2, text: 'Please close the window', isCorrect: true },
+        { id: 3, text: 'Please turn on the lights', isCorrect: false },
       ],
     },
     {
       id: 4,
-      arabicLetter: 'د',
+      arabicLetter: "Terjemahan yang tepat untuk kalimat 'أنا أحب الفاكهة' adalah",
       options: [
-        { id: 1, text: 'd', isCorrect: true },
-        { id: 2, text: 'r', isCorrect: false },
-        { id: 3, text: 'f', isCorrect: false },
+        { id: 1, text: 'Saya suka daging', isCorrect: false },
+        { id: 2, text: 'Saya suka sayuran', isCorrect: false },
+        { id: 3, text: 'Saya suka buah-buahan', isCorrect: true },
       ],
     },
     {
       id: 5,
-      arabicLetter: 'ص',
+      arabicLetter: "Bagaimana menerjemahkan kalimat 'أريد شراء الحليب' dalam bahasa Inggris?",
       options: [
-        { id: 1, text: 's', isCorrect: true },
-        { id: 2, text: 'sh', isCorrect: false },
-        { id: 3, text: 'z', isCorrect: false },
+        { id: 1, text: 'I want to buy some water', isCorrect: false },
+        { id: 2, text: 'I want to buy some bread', isCorrect: false },
+        { id: 3, text: 'I want to buy some milk', isCorrect: true },
       ],
     },
   ];
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   questionText: {
     fontFamily: 'SpaceGrotesk',
     color:'#212427',
-    fontSize: 50,
+    fontSize: 18,
     fontWeight: 'bold',
   },
   optionsContainer: {
