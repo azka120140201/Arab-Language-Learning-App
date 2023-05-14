@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {Alert, Button, StyleSheet, View, Text, TouchableOpacity} from "react-native";
-import ProgressBar from "./asset/ProgressBar";
+import ProgressBar from "../assets/ProgressBar";
 
 export default class Quiz extends Component {
   constructor(props) {

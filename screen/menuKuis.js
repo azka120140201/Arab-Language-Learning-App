@@ -47,7 +47,8 @@ const menuKuis = ({ navigation }) => {
                                    marginHorizontal: 20,
                                    marginTop: 100,
                               }}>
-                              <TouchableOpacity>
+                              <TouchableOpacity onPress={() => navigation.navigate('kuisListening')}>
+
                                    <Image 
                                    source={require('../src/images/headphones@3x.png')}
                                    style={{
@@ -66,7 +67,7 @@ const menuKuis = ({ navigation }) => {
                                    >Listening</Text>
                               </TouchableOpacity>
 
-                              <TouchableOpacity>
+                              <TouchableOpacity onPress={() => navigation.navigate('kuisSentence')}>
                                    <Image 
                                    source={require('../src/images/search-database@3x.png')}
                                    style={{
@@ -93,7 +94,7 @@ const menuKuis = ({ navigation }) => {
                                    marginTop: 25,
                               }}>
 
-                              <TouchableOpacity>
+                              <TouchableOpacity onPress={() => navigation.navigate('kuisVocab')}>
                                    <Image 
                                    source={require('../src/images/books@3x.png')}
                                    style={{
