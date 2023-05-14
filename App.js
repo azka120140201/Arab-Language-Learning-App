@@ -10,7 +10,10 @@ import splashScreen from './screen/splashScreen';
 import menuKuis from './screen/menuKuis';
 import home from './screen/home';
 import materi from './screen/materi';
-import isiMateri from './screen/isiMateri';
+import materiSentence from './screen/materiSentence';
+// import materiListening from './screen/materiListening';
+// import materiVocabulary from './screen/materiVocabulary';
+// import materiWtoP from './screen/materiWtoP';
 // import profil from './screen/profil';
 // import Leaderboard from './screen/leaderboard';
 import kuisListening from './screen/kuisListening';
@@ -30,7 +33,10 @@ function App() {
         <Stack.Screen name="signup" component={signup} />
         <Stack.Screen name="home" component={home} />
         <Stack.Screen name="materi" component={materi} />
-        <Stack.Screen name="isiMateri" component={isiMateri} />
+        <Stack.Screen name="materiSentence" component={materiSentence} />
+        {/* <Stack.Screen name="materiListening" component={materiListening} />
+        <Stack.Screen name="materiVocabulary" component={materiVocabulary} />
+        <Stack.Screen name="materiWtoP" component={materiWtoP} /> */}
         <Stack.Screen name="menuKuis" component={menuKuis} />
         {/* <Stack.Screen name="profil" component={profil} /> */}
         {/* <Stack.Screen name="Leaderboard" component={Leaderboard} /> */}
