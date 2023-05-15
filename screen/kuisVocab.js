@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Alert, Button, StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
-import ProgressBar from "../assets/ProgressBar";
+import ProgressBar from "./assets/ProgressBar";
 
 export default class Quiz extends Component {
   constructor(props) {
@@ -41,15 +41,42 @@ export default class Quiz extends Component {
           correctAnswer: 0,
         },
       ],
-    };
-  }
-
-  componentDidMount() {
-    // Jangan memulai penghitungan mundur saat komponen di-mount, tapi saat tombol Start ditekan
-  }
-
-  startQuiz() {
-    this.setState({ quizStarted: true }, () => {
+      score: 0, // Skor awal
+      quizFinished: false, // Apakah kuis sudah selesai atau belum
+            };
+    }
+  
+    componentDidMount() {
+      // Jangan memulai penghitungan mundur saat komponen di-mount, tapi saat tombol Start ditekan
+    }
+  
+    startQuiz() {
+      this.setState({ quizStarted: true }, () => {
+        this.interval = setInterval(() => {
+          if (this.state.timeRemaining > 0) {
+            this.setState({ timeRemaining: this.state.timeRemaining - 1 });
+          } else {
+            this.nextQuestion();
+          }
+        }, 1000);
+      });
+    }
+  
+    componentWillUnmount() {
+      clearInterval(this.interval);
+    }
+  
+    nextQuestion() {
+      if (this.state.currentQuestion === this.state.questions.length - 1) {
+        Alert.alert("Quiz is finished!");
+        this.setState({ quizFinished: true });
+      } else {
+        this.setState({
+          currentQuestion: this.state.currentQuestion + 1,
+          timeRemaining: 60,
+        });
+      }
+      clearInterval(this.interval);
       this.interval = setInterval(() => {
         if (this.state.timeRemaining > 0) {
           this.setState({ timeRemaining: this.state.timeRemaining - 1 });
@@ -57,86 +84,77 @@ export default class Quiz extends Component {
           this.nextQuestion();
         }
       }, 1000);
-    });
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  nextQuestion() {
-    if (this.state.currentQuestion === this.state.questions.length - 1) {
-      Alert.alert("Quiz is finished!");
-      this.setState({ currentQuestion: 0, timeRemaining: 60 });
-    } else {
-      this.setState({
-        currentQuestion: this.state.currentQuestion + 1,
-        timeRemaining: 60,
-      });
     }
-    clearInterval(this.interval);
-    this.interval = setInterval(() => {
-      if (this.state.timeRemaining > 0) {
-        this.setState({ timeRemaining: this.state.timeRemaining - 1 });
+  
+    handleAnswer(selectedIndex) {
+      const currentQuestion = this.state.questions[this.state.currentQuestion];
+      clearInterval(this.interval);
+      if (selectedIndex === currentQuestion.correctAnswer) {
+        // Menambahkan 1 pada skor jika jawaban benar
+        this.setState({ score: this.state.score + 1 });
+        Alert.alert("Correct!");
       } else {
-        this.nextQuestion();
+        Alert.alert("Incorrect!");
       }
-    }, 1000);
-  }
-
-  render() {
-    const currentQuestion = this.state.questions[this.state.currentQuestion];
-    return (
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Text style={styles.questionNumber}>
-            Question {this.state.currentQuestion + 1}
-          </Text>
-          <ProgressBar
-            progress={0.5}
-            width={300}
-            height={8}
-            color={"#93C572"}
-            secondColor={"#FFE5D9"}
-          />
-        </View>
-
-        <View style={styles.question}>
-          <View style={styles.bg_2}>
-            <Image source={{ uri: currentQuestion.image }} style={styles.image} />
-          </View>
-          <Text style={styles.label}>{currentQuestion.question}</Text>
-        </View>
-
-        <View style={styles.option}>
-          {currentQuestion.options.map((option, index) => (
-            <View key={index} style={styles.button}>
-              <TouchableOpacity onPress={() => this.handleAnswer(index)}>
-                <Text style={styles.buttonText}>{option}</Text>
-              </TouchableOpacity>
-            </View>
-          ))}
-        </View>
-
-        <Text style={styles.timeRemaining}>{this.state.timeRemaining} seconds remaining</Text>
-      </View>
-    );
-  }
-
-
-  handleAnswer(selectedIndex) {
-    const currentQuestion = this.state.questions[this.state.currentQuestion];
-    clearInterval(this.interval);
-    if (selectedIndex === currentQuestion.correctAnswer) {
-      Alert.alert("Correct!");
-    } else {
-      Alert.alert("Incorrect!");
+      this.nextQuestion();
     }
-    this.nextQuestion();
+  
+    render() {
+      const currentQuestion = this.state.questions[this.state.currentQuestion];
+      return (
+        <View style={styles.container}>
+          {!this.state.quizStarted && !this.state.quizFinished && (
+            <TouchableOpacity style={styles.startButton} onPress={() => this.startQuiz()}>
+              <Text style={styles.startButtonText}>Start Quiz</Text>
+            </TouchableOpacity>
+          )}
+  
+          {this.state.quizStarted && !this.state.quizFinished && (
+            <View>
+              <View style={styles.header}>
+                <Text style={styles.questionNumber}>
+                  Question {this.state.currentQuestion + 1}
+                </Text>
+                <ProgressBar
+                  progress={0.5}
+                  width={300}
+                  height={8}
+                  color={"#93C572"}
+                  secondColor={"#FFE5D9"}
+                />
+              </View>
+  
+              <View style={styles.question}>
+                <View style={styles.bg_2}>
+                  <Image source={{ uri: currentQuestion.image }} style={styles.image} />
+                </View>
+                <Text style={styles.label}>{currentQuestion.question}</Text>
+              </View>
+  
+              <View style={styles.option}>
+                {currentQuestion.options.map((option, index) => (
+                  <View key={index} style={styles.button}>
+                    <TouchableOpacity onPress={() => this.handleAnswer(index)}>
+                      <Text style={styles.buttonText}>{option}</Text>
+                    </TouchableOpacity>
+                  </View>
+                ))}
+              </View>
+            </View>
+          )}
+  
+          {this.state.quizFinished && (
+            <View style={styles.scoreContainer}>
+              <Text style={styles.scoreText}>Quiz Finished!</Text>
+              <Text style={styles.scoreText}>Your Score: {this.state.score}</Text>
+            </View>
+          )}
+        </View>
+      );
+    }
   }
-}
-
-const styles = StyleSheet.create({
+  
+  const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
@@ -164,7 +182,7 @@ const styles = StyleSheet.create({
     question: {
     marginTop: 120,
     marginBottom: 20,
-    width: '80%',
+    width: 250,
     height: 180,
     padding: 20,
     borderRadius: 40,
@@ -220,11 +238,27 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
-  timeRemaining: {
+  startButton: {
+    backgroundColor: "#93C572",
+    padding: 12,
+    borderRadius: 10,
+  },
+  startButtonText: {
+    color: "#FFFFFF",
     fontFamily: "SpaceGrotesk",
     fontSize: 16,
     fontWeight: "bold",
-    marginTop: 10,
-    color: "#000000",
+    textAlign: "center",
+  },
+  scoreContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  scoreText: {
+    fontFamily: "SpaceGrotesk",
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
   },
 });
