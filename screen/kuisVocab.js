@@ -14,13 +14,13 @@ export default class Quiz extends Component {
           question: "what is this thing?",
           image: "https://png.pngtree.com/png-clipart/20221017/ourmid/pngtree-gambar-pensil-yang-imut-png-image_6350444.png",
           options: ["كِتَابٌ", "قَلَمٌ", "مُمْحَاةٌ"],
-          correctAnswer: 0,
+          correctAnswer: 1,
         },
         {
           question: "what is this thing?",
           image: "https://www.pngplay.com/wp-content/uploads/1/Laptop-PNG-Image.png",
           options: ["تِلِفِزْيُونٌ", "لَابْتوبٌ", "جَوَّالٌ"],
-          correctAnswer: 0,
+          correctAnswer: 1,
         },
         {
           question: "what is this thing?",
@@ -32,13 +32,13 @@ export default class Quiz extends Component {
           question: "what is this thing?",
           image: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Free-Image.png",
           options: ["حَدِيقَةٌ تَرْفِيهِيَّةٌ","مُسْتَشْفَىٰ", "مَدْرَسَةٌ"],
-          correctAnswer: 0,
+          correctAnswer: 1,
         },
         {
           question: "what is this thing?",
           image: "https://www.pngplay.com/wp-content/uploads/12/Easy-Rose-Drawings-PNG-Clipart-Background.png",
           options: ["وَرْدَةٌ","يَاسْمِينٌ","أُرْكِيدِيَّةٌ "],
-          correctAnswer: 0,
+          correctAnswer: 2,
         },
       ],
       score: 0, // Skor awal
