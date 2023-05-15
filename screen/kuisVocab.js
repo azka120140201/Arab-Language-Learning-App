@@ -43,7 +43,7 @@ export default class Quiz extends Component {
       ],
       score: 0, // Skor awal
       quizFinished: false, // Apakah kuis sudah selesai atau belum
-            };
+      };
     }
   
     componentDidMount() {
