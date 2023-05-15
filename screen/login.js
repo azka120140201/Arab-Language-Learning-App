@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, Alert, ActivityIndicator} from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useFonts } from 'expo-font';
 
@@ -8,6 +8,7 @@ const login = ({ navigation }) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
      const [showPassword, setShowPassword] = useState(false); // State untuk mengontrol tampilan password
+     const [error, setError] = useState(null);
      const [loading, setLoading] = useState({
           loadingLogin:false,
      });
@@ -36,9 +37,7 @@ const login = ({ navigation }) => {
                if(response.ok){
                     await navigation.navigate('home')
                }else{
-                    Alert.alert('An Error Occured!', resData.error.message,[{
-                         text:'Okay'
-                    },]);
+                    setError(resData.error.message);
                }
                setLoading({
                     loadingLogin:false
@@ -194,6 +193,10 @@ const login = ({ navigation }) => {
                          </TouchableOpacity>
                        
                </View>
+               
+               {error && (
+                    <Text style={{ color: 'red', alignSelf: 'center', marginTop: 10 }}>{error}</Text>
+               )}
 
                <TouchableOpacity
                     onPress={AuthLogin}
