@@ -15,29 +15,29 @@ const materi = ({ navigation }) => {
   }
 
   const handleSentencesPress = () => {
-    navigation.navigate('materiSentence', { type: 'Sentences' }); 
+    navigation.navigate('materiSentence', { type: 'Sentences' });
   };
 
   const handleListeningPress = () => {
-    navigation.navigate('materiListening', { type: 'Listening' }); 
+    navigation.navigate('materiListening', { type: 'Listening' });
   };
 
   const handleVocabularyPress = () => {
-    navigation.navigate('materiVocabulary', { type: 'Vocabulary' }); 
+    navigation.navigate('materiVocabulary', { type: 'Vocabulary' });
   };
 
   const handleWordsPress = () => {
-    navigation.navigate('materiWtoP', { type: 'WtoP' }); 
+    navigation.navigate('materiWtoP', { type: 'WtoP' });
   };
 
   return (
-    <View style={styles.container}>
+    <><View style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
         <Icon name="chevron-left" size={17} color="#111" />
         <Text style={styles.backButtonText}></Text>
       </TouchableOpacity>
       <Text style={styles.title}>Arab Lessons</Text>
-      
+
       <View style={styles.lessonContainer}>
         <TouchableOpacity style={styles.lessonButton} onPress={handleSentencesPress}>
           <Text style={styles.lessonButtonText}>Sentences</Text>
@@ -52,7 +52,56 @@ const materi = ({ navigation }) => {
           <Text style={styles.lessonButtonText}>Picture</Text>
         </TouchableOpacity>
       </View>
-    </View>
+
+    </View><View
+      style={{
+        flex: 0.1,
+        backgroundColor: '#93C572',
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15
+      }}>
+        <View style={{ marginTop: 20, flexDirection: 'row' }}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('home')}
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Icon name="home" size={20} color="#111" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('menuKuis')}
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Icon name="quidditch" size={20} color="#111" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Icon name="chart-bar" size={20} color="#111" />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('profil')}
+            style={{
+              flex: 1,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Icon name="user" size={20} color="#111" />
+          </TouchableOpacity>
+        </View>
+      </View></>
   );
 };
 
@@ -70,7 +119,7 @@ const styles = StyleSheet.create({
   },
   backButtonText: {
     fontFamily: 'SpaceGrotesk',
-    color:'#212427',
+    color: '#212427',
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'left',
@@ -78,19 +127,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'SpaceGrotesk',
-    color:'#212427',
+    color: '#212427',
     fontSize: 32,
     fontWeight: 'bold',
     textAlign: 'left',
-    marginTop: 20,
-    paddingBottom: 30,
   },
   lessonContainer: {
     marginTop: 30,
   },
   lessonButton: {
     backgroundColor: '#93C572',
-    height: 74,
+    height: 50,
     borderRadius: 10,
     marginBottom: 20,
     shadowColor: 'black',
@@ -104,7 +151,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: 24,
     fontWeight: 'bold',
-    lineHeight: 74,
+    lineHeight: 50,
     paddingLeft: 15,
     paddingRight: 15,
   },

@@ -154,6 +154,16 @@ const menuKuis = ({ navigation }) => {
                          <Icon name="home" size={20} color="#111"/> 
                     </TouchableOpacity>
                     <TouchableOpacity
+                              onPress={() => navigation.navigate('materi')}
+                              style={{
+                                   flex: 1,
+                                   justifyContent: 'center',
+                                   alignItems: 'center'
+                              }}
+                         >
+                              <Icon name="book" size={20} color="#111" />
+                         </TouchableOpacity>
+                    <TouchableOpacity
                          style={{
                               flex: 1, 
                               justifyContent: 'center', 
