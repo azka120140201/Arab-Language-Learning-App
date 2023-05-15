@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator} from 'react-native';
+import { View, Text, Image,  TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useFonts } from 'expo-font';
 
 
-const login = ({ navigation }) => {
+const home = ({ navigation }) => {
      const [loaded] = useFonts({
           SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
         });
@@ -228,4 +228,4 @@ const login = ({ navigation }) => {
           </View>
      );
 }
-export default login;
+export default home;
