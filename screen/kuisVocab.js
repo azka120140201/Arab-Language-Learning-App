@@ -11,18 +11,35 @@ export default class Quiz extends Component {
       timeRemaining: 60,
       questions: [
         {
-          question: "What is the capital of France?",
+          question: "what is this thing?",
           image: "https://png.pngtree.com/png-clipart/20221017/ourmid/pngtree-gambar-pensil-yang-imut-png-image_6350444.png",
-          options: ["Paris", "Berlin", "Rome", "Madrid"],
+          options: ["كِتَابٌ", "قَلَمٌ", "مُمْحَاةٌ"],
           correctAnswer: 0,
         },
         {
-          question: "What is the largest country in the world by area?",
-          image: "https://www.pngplay.com/wp-content/uploads/2/Cat-PNG-Clipart-Background.png",
-          options: ["Russia", "Canada", "China", "USA"],
+          question: "what is this thing?",
+          image: "https://www.pngmart.com/files/1/Laptop-PNG-File.png",
+          options: ["تِلِفِزْيُونٌ", "لَابْتوبٌ", "جَوَّالٌ"],
           correctAnswer: 0,
         },
-        // ...
+        {
+          question: "what is this thing?",
+          image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8mjdfCvOs0oREO_1rInt2iCLFfd2iLR7sKQJs7cWQ4YpfNX4EySzJgXlj__cl9efG7gpVoAW8rQ2_dJ7RK1h-PpsRznD7fw6azfeTtM-r8dwN4c8vJcvwIBKhadM2TA0W3I0JrlH8taKBNoNAPn3iQW0YyRnrVJls1hVGqo-8MMVVgyDPM8djTJWmCA/s1151/jus-buah.png",
+          options: ["شَايٌ","حَلِيب", "عَصِيرٌ"],
+          correctAnswer: 0,
+        },
+        {
+          question: "what is this thing?",
+          image: "https://www.pngall.com/wp-content/uploads/8/Hospital-PNG-Free-Image.png",
+          options: ["حَدِيقَةٌ تَرْفِيهِيَّةٌ","مُسْتَشْفَىٰ", "مَدْرَسَةٌ"],
+          correctAnswer: 0,
+        },
+        {
+          question: "what is this thing?",
+          image: "https://www.pngmart.com/files/19/Red-Rose-Flower-PNG-HD.png",
+          options: ["وَرْدَةٌ","يَاسْمِينٌ","أُرْكِيدِيَّةٌ "],
+          correctAnswer: 0,
+        },
       ],
     };
   }
