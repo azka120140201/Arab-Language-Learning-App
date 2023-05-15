@@ -34,7 +34,32 @@ const home = ({ navigation }) => {
                          }} />
 
                     <Text style={{ fontSize: 24, fontWeight: 'bold', }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
+                    <TouchableOpacity
+                         onPress={() => navigation.navigate('materi')}
+                         style={{
+                              backgroundColor: '#72A152',
+                              paddingVertical: 10,
+                              paddingHorizontal: 50,
+                              marginTop: 100,
+                              marginHorizontal: 20,
+                              borderRadius: 5,
+                              elevation: 10,
 
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
+                         }}
+                    >
+                         <Text
+                              style={{
+                                   color: '#ffffff',
+                                   textAlign: 'center',
+                                   fontWeight: 'bold'
+                              }}>
+                              Lesson
+                         </Text>
+                    </TouchableOpacity>
                </View>
 
                <View
@@ -46,16 +71,6 @@ const home = ({ navigation }) => {
                     }}>
 
                     <View style={{ marginTop: 20, flexDirection: 'row' }}>
-                         <TouchableOpacity
-                              onPress={() => navigation.navigate('materi')}
-                              style={{
-                                   flex: 1,
-                                   justifyContent: 'center',
-                                   alignItems: 'center'
-                              }}
-                         >
-                              <Icon name="book" size={20} color="#111" />
-                         </TouchableOpacity>
                          <TouchableOpacity
                               onPress={() => navigation.navigate('menuKuis')}
                               style={{
