@@ -7,9 +7,14 @@ import { useFonts } from 'expo-font';
 const login = ({ navigation }) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
+     const [showPassword, setShowPassword] = useState(false); // State untuk mengontrol tampilan password
      const [loading, setLoading] = useState({
           loadingLogin:false,
-     })
+     });
+
+     const toggleShowPassword = () => {
+          setShowPassword(!showPassword); // Mengubah state showPassword ketika tombol mata ditekan
+     };
 
      const AuthLogin = async () =>{ 
           try{
@@ -183,7 +188,11 @@ const login = ({ navigation }) => {
                          }}
                          placeholder='Masukan Password'
                          onChangeText={text => setPassword(text)}
-                         secureTextEntry={true} />
+                         secureTextEntry={!showPassword} /> {/* Menggunakan secureTextEntry dan showPassword state */}
+                         <TouchableOpacity onPress={toggleShowPassword} style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+                              <Icon name={showPassword ? 'eye-slash' : 'eye'} size={17} color="#111" /> {/* Menggunakan ikon mata */}
+                         </TouchableOpacity>
+                       
                </View>
 
                <TouchableOpacity
