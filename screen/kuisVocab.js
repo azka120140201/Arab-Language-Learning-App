@@ -18,7 +18,7 @@ export default class Quiz extends Component {
         },
         {
           question: "what is this thing?",
-          image: "https://www.pngmart.com/files/1/Laptop-PNG-File.png",
+          image: "https://www.pngplay.com/wp-content/uploads/1/Laptop-PNG-Image.png",
           options: ["تِلِفِزْيُونٌ", "لَابْتوبٌ", "جَوَّالٌ"],
           correctAnswer: 0,
         },
@@ -36,7 +36,7 @@ export default class Quiz extends Component {
         },
         {
           question: "what is this thing?",
-          image: "https://www.pngmart.com/files/19/Red-Rose-Flower-PNG-HD.png",
+          image: "https://www.pngplay.com/wp-content/uploads/12/Easy-Rose-Drawings-PNG-Clipart-Background.png",
           options: ["وَرْدَةٌ","يَاسْمِينٌ","أُرْكِيدِيَّةٌ "],
           correctAnswer: 0,
         },
