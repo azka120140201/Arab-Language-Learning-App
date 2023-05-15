@@ -13,7 +13,7 @@ export default class Quiz extends Component {
         {
           question: "Apa arti dari kalimat 'كم عمرك؟' dalam bahasa Indonesia?",
           options: ["Apa kabarmu?", "Berapa usiamu?", "Di mana kamu tinggal?", "Apa pekerjaanmu?"],
-          correctAnswer: 0,
+          correctAnswer: 1,
         },
         {
           question: "Bagaimana menerjemahkan kalimat 'أنا أحب القراءة' dalam bahasa Inggris?",
@@ -23,17 +23,17 @@ export default class Quiz extends Component {
         {
           question: "Apa arti dari kalimat 'من فضلك، أغلق النافذة' dalam bahasa Inggris?",
           options: ["Please open the door", "Please close the window", "Please turn on the lights", "Please turn off the fan"],
-          correctAnswer: 0,
+          correctAnswer: 1,
         },
         {
           question: "Terjemahan yang tepat untuk kalimat 'أنا أحب الفاكهة' adalah",
           options: ["Saya suka daging", "Saya suka sayuran", "Saya suka buah-buahan", "Saya suka minuman"],
-          correctAnswer: 0,
+          correctAnswer: 2,
         },
         {
           question: "Bagaimana menerjemahkan kalimat 'أريد شراء الحليب' dalam bahasa Inggris?",
           options: ["I want to buy some water", "I want to buy some bread", "I want to buy some milk", "I want to buy some juice"],
-          correctAnswer: 0,
+          correctAnswer: 2,
         },
       ],
       score: 0, // Skor awal
