@@ -15,10 +15,11 @@ import materiSentence from './screen/materiSentence';
 // import materiVocabulary from './screen/materiVocabulary';
 // import materiWtoP from './screen/materiWtoP';
 // import profil from './screen/profil';
-// import Leaderboard from './screen/leaderboard';
+import Leaderboard from './screen/leaderboard';
 import kuisListening from './screen/kuisListening';
 import kuisVocab from './screen/kuisVocab';
 import kuisSentence from './screen/kuisSentence';
+import berhasilSignup from './screen/berhasilSignup';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,10 +40,11 @@ function App() {
         <Stack.Screen name="materiWtoP" component={materiWtoP} /> */}
         <Stack.Screen name="menuKuis" component={menuKuis} />
         {/* <Stack.Screen name="profil" component={profil} /> */}
-        {/* <Stack.Screen name="Leaderboard" component={Leaderboard} /> */}
+        <Stack.Screen name="Leaderboard" component={Leaderboard} />
         <Stack.Screen name="kuisListening" component={kuisListening} />
         <Stack.Screen name="kuisVocab" component={kuisVocab} />
         <Stack.Screen name="kuisSentence" component={kuisSentence} />
+        <Stack.Screen name="berhasilSignup" component={berhasilSignup} />
       </Stack.Navigator>
     </NavigationContainer>
   );

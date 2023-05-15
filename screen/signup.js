@@ -31,7 +31,7 @@ const signup = ({ navigation }) => {
           })
           const resData = await response.json()
           console.log(resData)
-          await navigation.navigate('login')
+          await navigation.navigate('berhasilSignup')
      }
 
      const [loaded] = useFonts({
