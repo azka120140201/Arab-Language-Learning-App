@@ -53,13 +53,15 @@ const materi = ({ navigation }) => {
         </TouchableOpacity>
       </View>
 
-    </View><View
-      style={{
-        flex: 0.1,
-        backgroundColor: '#93C572',
-        borderTopLeftRadius: 15,
-        borderTopRightRadius: 15
-      }}>
+    </View>
+      <View
+        style={{
+          flex: 0.1,
+          backgroundColor: '#93C572',
+          borderTopLeftRadius: 15,
+          borderTopRightRadius: 15,
+          paddingBottom: 8
+        }}>
         <View style={{ marginTop: 20, flexDirection: 'row' }}>
           <TouchableOpacity
             onPress={() => navigation.navigate('home')}
@@ -101,7 +103,8 @@ const materi = ({ navigation }) => {
             <Icon name="user" size={20} color="#111" />
           </TouchableOpacity>
         </View>
-      </View></>
+      </View>
+    </>
   );
 };
 
