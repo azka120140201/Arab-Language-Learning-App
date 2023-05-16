@@ -14,7 +14,7 @@ import materiSentence from './screen/materiSentence';
 // import materiListening from './screen/materiListening';
 // import materiVocabulary from './screen/materiVocabulary';
 // import materiWtoP from './screen/materiWtoP';
-// import profil from './screen/profil';
+import profil from './screen/profil';
 import Leaderboard from './screen/leaderboard';
 import kuisListening from './screen/kuisListening';
 import kuisVocab from './screen/kuisVocab';
@@ -39,7 +39,7 @@ function App() {
         <Stack.Screen name="materiVocabulary" component={materiVocabulary} />
         <Stack.Screen name="materiWtoP" component={materiWtoP} /> */}
         <Stack.Screen name="menuKuis" component={menuKuis} />
-        {/* <Stack.Screen name="profil" component={profil} /> */}
+        <Stack.Screen name="profil" component={profil} />
         <Stack.Screen name="Leaderboard" component={Leaderboard} />
         <Stack.Screen name="kuisListening" component={kuisListening} />
         <Stack.Screen name="kuisVocab" component={kuisVocab} />

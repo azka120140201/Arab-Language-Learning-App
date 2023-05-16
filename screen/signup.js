@@ -1,46 +1,61 @@
 import React, { useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity, Alert, ActivityIndicator} from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useFonts } from 'expo-font';
 
+// Import Firebase SDK
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, set } from 'firebase/database';
+
+// Inisialisasi Firebase
+import firebaseConfig from '../src/DataBase/firebaseConfig'; 
+
+const auth = getAuth();
+const db = getDatabase();
 
 const signup = ({ navigation }) => {
-     const [email, setEmail] = useState('');
-     const [password, setPassword] = useState('');
-     const [showPassword, setShowPassword] = useState(false); // State untuk mengontrol tampilan password
-     const [loading, setLoading] = useState({
-          loadingSign:false,
-     });
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [telepon, setTelepon] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-     const toggleShowPassword = () => {
-          setShowPassword(!showPassword); // Mengubah state showPassword ketika tombol mata ditekan
-     };
+  const [loaded] = useFonts({
+    SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
+  });
 
+  if (!loaded) {
+    return null;
+  }
 
-     const AuthSign = async () =>{
-          const response = await fetch("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBQDNj-ErcBzNzhWMa6uPMgC8t79YuXtnw", {
-               method:"POST",
-               headers:{
-                    'Content-type':'application/json'
-               },
-               body:JSON.stringify({
-                    email:email,
-                    password:password,
-                    returnSecureToken:true
-               })
-          })
-          const resData = await response.json()
-          console.log(resData)
-          await navigation.navigate('berhasilSignup')
-     }
+  const signUpToFirebase = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
 
-     const [loaded] = useFonts({
-          SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
+        // Simpan data tambahan ke database Firebase
+        const userRef = ref(db, 'users/' + user.uid);
+        set(userRef, {
+          name: name,
+          telepon: telepon,
+        }).then(() => {
+          console.log('Data user berhasil disimpan ke database');
+        }).catch((error) => {
+          console.log('Gagal menyimpan data user ke database: ' + error.message);
         });
 
-     if (!loaded) {
-     return null;
-     }
+        console.log('User berhasil didaftarkan dengan ID:', user.uid);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('Gagal melakukan signup:', errorCode, errorMessage);
+      });
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
      return (
           <View
@@ -79,9 +94,111 @@ const signup = ({ navigation }) => {
                          }} />
 
                     <Text style={{ fontSize: 24, fontWeight: 'bold',fontFamily: 'SpaceGrotesk' }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20,fontFamily: 'SpaceGrotesk' }}>Log-in</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20,fontFamily: 'SpaceGrotesk' }}>signUp</Text>
                </View>
 
+
+               <Text
+                    style={{
+                         marginTop: 8,
+                         marginLeft: 21,
+                         marginBottom: -8,
+                         fontFamily: 'SpaceGrotesk'
+                    }}
+               >Name</Text>
+               <View style={{
+                    flexDirection: 'row',
+                    marginHorizontal: 20,
+                    marginTop: 10,
+               }}>
+                    <View
+                         style={{
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              backgroundColor: '#ffff',
+                              width: 50,
+                              borderTopLeftRadius: 5,
+                              borderBottomLeftRadius: 5,
+                              elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
+                         }}>
+                         <Icon name="user" size={17} color="#111" />
+                    </View>
+                    <TextInput
+                         value={name}
+                         style={{
+                              backgroundColor: '#ffff',
+                              borderTopRightRadius: 5,
+                              borderBottomRightRadius: 5,
+                              flex: 1,
+                              paddingVertical: 10,
+                              elevation: 10,
+                              paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
+                         }}
+                         placeholder='Masukan Nama'
+                         onChangeText={text => setName(text)} />
+               </View>
+
+               <Text
+                    style={{
+                         marginTop: 8,
+                         marginLeft: 21,
+                         marginBottom: -8,
+                         fontFamily: 'SpaceGrotesk'
+                    }}
+               >Telepon</Text>
+               <View style={{
+                    flexDirection: 'row',
+                    marginHorizontal: 20,
+                    marginTop: 10,
+               }}>
+                    <View
+                         style={{
+                              justifyContent: 'center',
+                              alignItems: 'center',
+                              backgroundColor: '#ffff',
+                              width: 50,
+                              borderTopLeftRadius: 5,
+                              borderBottomLeftRadius: 5,
+                              elevation: 10,
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
+                         }}>
+                         <Icon name="phone-alt" size={17} color="#111" />
+                    </View>
+                    <TextInput
+                         value={telepon}
+                         style={{
+                              backgroundColor: '#ffff',
+                              borderTopRightRadius: 5,
+                              borderBottomRightRadius: 5,
+                              flex: 1,
+                              paddingVertical: 10,
+                              elevation: 10,
+                              paddingLeft: 10,
+                              fontFamily: 'SpaceGrotesk',
+
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
+                         }}
+                         placeholder='Masukan No Telepon'
+                         onChangeText={text => setTelepon(text)} />
+               </View>
 
                <Text
                     style={{
@@ -191,7 +308,7 @@ const signup = ({ navigation }) => {
                </View>
 
                <TouchableOpacity
-                    onPress={AuthSign}
+                    onPress={signUpToFirebase}
                     style={{
                          backgroundColor: '#72A152',
                          paddingVertical: 10,

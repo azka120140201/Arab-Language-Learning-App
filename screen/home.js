@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
-import { View, Text, Image,  TouchableOpacity} from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, Image,  TouchableOpacity, BackHandler} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { useFonts } from 'expo-font';
 
 
 const home = ({ navigation }) => {
+
+     useEffect(() => {
+          BackHandler.addEventListener('hardwareBackPress', () => true)
+          return() => {
+               BackHandler.addEventListener('hardwareBackPress', () => true)
+          }
+     },[])
+
+
      const [loaded] = useFonts({
           SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
         });
