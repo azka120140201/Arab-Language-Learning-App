@@ -40,6 +40,7 @@ const signup = ({ navigation }) => {
           telepon: telepon,
         }).then(() => {
           console.log('Data user berhasil disimpan ke database');
+          navigation.navigate('berhasilSignup')
         }).catch((error) => {
           console.log('Gagal menyimpan data user ke database: ' + error.message);
         });
@@ -86,6 +87,7 @@ const signup = ({ navigation }) => {
                               width: 150,
                               height: 150,
                               marginBottom: -20,
+                              marginTop: -30,
 
                               shadowColor: 'black',
                               shadowOffset: { width: 0, height: 2 },
@@ -94,7 +96,7 @@ const signup = ({ navigation }) => {
                          }} />
 
                     <Text style={{ fontSize: 24, fontWeight: 'bold',fontFamily: 'SpaceGrotesk' }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
-                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20,fontFamily: 'SpaceGrotesk' }}>signUp</Text>
+                    <Text style={{ fontSize: 20, fontWeight: 'bold', marginBottom: 20,fontFamily: 'SpaceGrotesk' }}>sign-Up</Text>
                </View>
 
 
@@ -196,7 +198,7 @@ const signup = ({ navigation }) => {
                               shadowOpacity: 0.5,
                               shadowRadius: 4,
                          }}
-                         placeholder='Masukan No Telepon'
+                         placeholder='Masukan No. Telepon'
                          onChangeText={text => setTelepon(text)} />
                </View>
 
