@@ -15,19 +15,19 @@ const materi = ({ navigation }) => {
   }
 
   const handleSentencesPress = () => {
-    navigation.navigate('materiSentence', { type: 'Sentences' });
+    navigation.navigate('materiBenda', { type: 'Kata Benda' });
   };
 
   const handleListeningPress = () => {
-    navigation.navigate('materiListening', { type: 'Listening' });
+    navigation.navigate('materiHewan', { type: 'Kata Hewan' });
   };
 
   const handleVocabularyPress = () => {
-    navigation.navigate('materiVocabulary', { type: 'Vocabulary' });
+    navigation.navigate('materiKerja', { type: 'Kata Kerja' });
   };
 
   const handleWordsPress = () => {
-    navigation.navigate('materiWtoP', { type: 'WtoP' });
+    navigation.navigate('materiKeterangan', { type: 'Kata Keterangan' });
   };
 
   return (
@@ -40,16 +40,16 @@ const materi = ({ navigation }) => {
 
       <View style={styles.lessonContainer}>
         <TouchableOpacity style={styles.lessonButton} onPress={handleSentencesPress}>
-          <Text style={styles.lessonButtonText}>Sentences</Text>
+          <Text style={styles.lessonButtonText}>Kata Benda</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.lessonButton} onPress={handleListeningPress}>
-          <Text style={styles.lessonButtonText}>Listening</Text>
+          <Text style={styles.lessonButtonText}>Kata Hewan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.lessonButton} onPress={handleVocabularyPress}>
-          <Text style={styles.lessonButtonText}>Vocabulary</Text>
+          <Text style={styles.lessonButtonText}>Kata Kerja</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.lessonButton} onPress={handleWordsPress}>
-          <Text style={styles.lessonButtonText}>Picture</Text>
+          <Text style={styles.lessonButtonText}>Kata Keterangan</Text>
         </TouchableOpacity>
       </View>
 
@@ -150,9 +150,8 @@ const styles = StyleSheet.create({
   },
   lessonButtonText: {
     fontFamily: 'SpaceGrotesk',
-    color: '#F9F6EE',
+    color: '#212427',
     textAlign: 'left',
-    fontSize: 24,
     fontWeight: 'bold',
     lineHeight: 50,
     paddingLeft: 15,
