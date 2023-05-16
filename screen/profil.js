@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native'
 
-export default ProfileView = () => {
+const profil = () => {
   const data = [
     { id: 1, image: 'https://static.vecteezy.com/system/resources/previews/006/417/311/original/outline-email-icon-isolated-on-grey-background-open-envelope-pictogram-line-mail-symbol-for-website-design-mobile-application-ui-illustration-eps10-free-vector.jpg', title: 'email' },
     {
@@ -53,7 +53,8 @@ export default ProfileView = () => {
       </View>
     </View>
   )
-}
+};
+export default profil;
 
 const styles = StyleSheet.create({
   header: {
