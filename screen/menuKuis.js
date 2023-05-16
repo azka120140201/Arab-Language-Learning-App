@@ -112,7 +112,8 @@ const menuKuis = ({ navigation }) => {
                                    >Vocabula</Text>
                               </TouchableOpacity>
 
-                              <TouchableOpacity>
+                              <TouchableOpacity onPress={() => navigation.navigate('kuisWtoP')}>
+                                   
                                    <Image
                                         source={require('../src/images/camera-identification@3x.png')}
                                         style={{
