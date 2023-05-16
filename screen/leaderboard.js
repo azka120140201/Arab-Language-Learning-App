@@ -30,7 +30,7 @@ const Leaderboard = () => {
       <View style={styles.navigationBar}>
         <Pressable
           style={styles.navigationBarIcon}
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate("MenuKuis")}
         >
           <Image
             style={styles.navigationBarIconImage}
