@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useFonts } from 'expo-font';
+import React, { Component, useEffect, useState } from 'react';
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useFonts } from 'expo-font';
+
 
 const materi = ({ navigation }) => {
-  const [typeMateri, settypeMateri] = useState('');
+
+
 
   const [loaded] = useFonts({
     SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
@@ -14,53 +16,106 @@ const materi = ({ navigation }) => {
     return null;
   }
 
-  const handleSentencesPress = () => {
-    navigation.navigate('materiBenda', { type: 'Kata Benda' });
-  };
-
-  const handleListeningPress = () => {
-    navigation.navigate('materiHewan', { type: 'Kata Hewan' });
-  };
-
-  const handleVocabularyPress = () => {
-    navigation.navigate('materiKerja', { type: 'Kata Kerja' });
-  };
-
-  const handleWordsPress = () => {
-    navigation.navigate('materiKeterangan', { type: 'Kata Keterangan' });
-  };
-
   return (
-    <><View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-        <Icon name="chevron-left" size={17} color="#111" />
-        <Text style={styles.backButtonText}></Text>
-      </TouchableOpacity>
-      <Text style={styles.title}>Arab Lessons</Text>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: '#F9F6EE',
+      }}>
 
-      <View style={styles.lessonContainer}>
-        <TouchableOpacity style={styles.lessonButton} onPress={handleSentencesPress}>
-          <Text style={styles.lessonButtonText}>Kata Benda</Text>
+      <View style={{ flex: 0.9 }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginHorizontal: 20,
+            marginTop: 25,
+          }}>
+          <View>
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Icon name="chevron-left" size={17} color="#111" />
+            </TouchableOpacity>
+          </View>
+          <Text
+            style={{
+              fontFamily: 'SpaceGrotesk',
+              marginLeft: 15,
+              fontWeight: 'bold'
+            }}
+          >Choose Category Quiz</Text>
+        </View>
+
+
+
+
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 30,
+          }}>
+          <Image
+            source={require('../src/images/Logo.png')}
+            style={{
+              width: 150,
+              height: 150,
+              marginBottom: -20,
+
+              shadowColor: 'black',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.5,
+              shadowRadius: 4,
+            }} />
+
+          <Text style={{ fontSize: 24, fontWeight: 'bold', fontFamily: 'SpaceGrotesk' }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
+          <Text style={{ fontSize: 24, fontWeight: 'bold', fontFamily: 'SpaceGrotesk' }}>MATERI</Text>
+
+        </View>
+
+
+
+        <TouchableOpacity onPress={() => navigation.navigate('materiBenda')}>
+          <View style={styles.pilihanMenu}>
+            <View style={styles.iconMeneKuis}>
+              <Icon name="star" size={17} color="#111" />
+            </View>
+            <Text style={styles.tombolMateri}>Kata Benda</Text>
+          </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.lessonButton} onPress={handleListeningPress}>
-          <Text style={styles.lessonButtonText}>Kata Hewan</Text>
+
+        <TouchableOpacity onPress={() => navigation.navigate('materiHewan')}>
+          <View style={styles.pilihanMenu}>
+            <View style={styles.iconMeneKuis}>
+              <Icon name="paw" size={17} color="#111" />
+            </View>
+            <Text style={styles.tombolMateri}>Kata Hewan</Text>
+          </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.lessonButton} onPress={handleVocabularyPress}>
-          <Text style={styles.lessonButtonText}>Kata Kerja</Text>
+
+        <TouchableOpacity onPress={() => navigation.navigate('materiKerja')}>
+          <View style={styles.pilihanMenu}>
+            <View style={styles.iconMeneKuis}>
+              <Icon name="suitcase" size={17} color="#111" />
+            </View>
+            <Text style={styles.tombolMateri}>Kata Kerja</Text>
+          </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.lessonButton} onPress={handleWordsPress}>
-          <Text style={styles.lessonButtonText}>Kata Keterangan</Text>
+
+        <TouchableOpacity onPress={() => navigation.navigate('materiKeterangan')}>
+          <View style={styles.pilihanMenu}>
+            <View style={styles.iconMeneKuis}>
+              <Icon name="info" size={17} color="#111" />
+            </View>
+            <Text style={styles.tombolMateri}>Kata Keterangan</Text>
+          </View>
         </TouchableOpacity>
       </View>
 
-    </View>
       <View
         style={{
           flex: 0.1,
           backgroundColor: '#93C572',
           borderTopLeftRadius: 15,
-          borderTopRightRadius: 15,
-          paddingBottom: 8
+          borderTopRightRadius: 15
         }}>
         <View style={{ marginTop: 20, flexDirection: 'row' }}>
           <TouchableOpacity
@@ -102,61 +157,54 @@ const materi = ({ navigation }) => {
           >
             <Icon name="user" size={20} color="#111" />
           </TouchableOpacity>
+
         </View>
+
+
       </View>
-    </>
+    </View>
+
   );
-};
+}
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#F9F6EE',
-    flex: 1,
-    paddingHorizontal: 30,
-    paddingTop: 30,
-  },
-  backButton: {
-    flexDirection: 'row',
+  iconMeneKuis: {
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
-  },
-  backButtonText: {
-    fontFamily: 'SpaceGrotesk',
-    color: '#212427',
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'left',
-    paddingLeft: 10,
-  },
-  title: {
-    fontFamily: 'SpaceGrotesk',
-    color: '#212427',
-    fontSize: 32,
-    fontWeight: 'bold',
-    textAlign: 'left',
-  },
-  lessonContainer: {
-    marginTop: 30,
-  },
-  lessonButton: {
     backgroundColor: '#93C572',
-    height: 50,
-    borderRadius: 10,
-    marginBottom: 20,
+    width: 50,
+    borderTopLeftRadius: 5,
+    borderBottomLeftRadius: 5,
+    elevation: 10,
+
+
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 4,
   },
-  lessonButtonText: {
+  tombolMateri: {
+    backgroundColor: '#93C572',
+    borderTopRightRadius: 5,
+    borderBottomRightRadius: 5,
+    flex: 1,
+    paddingVertical: 15,
+    elevation: 10,
+    paddingLeft: 10,
     fontFamily: 'SpaceGrotesk',
-    color: '#212427',
-    textAlign: 'left',
-    fontWeight: 'bold',
-    lineHeight: 50,
-    paddingLeft: 15,
-    paddingRight: 15,
+    fontWeight: "bold",
+
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
   },
+  pilihanMenu: {
+    flexDirection: 'row',
+    marginHorizontal: 20,
+    marginTop: 20,
+  }
+
 });
 
 export default materi;
