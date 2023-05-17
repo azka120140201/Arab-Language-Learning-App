@@ -16,7 +16,6 @@ import materiKerja from './screen/materiKerja';
 import materiKeterangan from './screen/materiKeterangan';
 import profil from './screen/profil';
 import Leaderboard from './screen/leaderboard';
-import kuisListening from './screen/kuisListening';
 import kuisVocab from './screen/kuisVocab';
 import kuisSentence from './screen/kuisSentence';
 import kuisWtoP from './screen/kuisWtoP';
@@ -42,7 +41,6 @@ function App() {
         <Stack.Screen name="menuKuis" component={menuKuis} />
         <Stack.Screen name="profil" component={profil} />
         <Stack.Screen name="Leaderboard" component={Leaderboard} />
-        <Stack.Screen name="kuisListening" component={kuisListening} />
         <Stack.Screen name="kuisVocab" component={kuisVocab} />
         <Stack.Screen name="kuisSentence" component={kuisSentence} />
         <Stack.Screen name="kuisWtoP" component={kuisWtoP} />
