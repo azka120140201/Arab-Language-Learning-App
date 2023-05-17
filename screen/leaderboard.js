@@ -30,7 +30,7 @@ const Leaderboard = () => {
       <View style={styles.navigationBar}>
         <Pressable
           style={styles.navigationBarIcon}
-          onPress={() => navigation.navigate("BottomTabsRoot", { screen: "Profile" })}
+          onPress={() => navigation.navigate("home")}
         >
           <Image
             style={styles.navigationBarIconImage}
@@ -38,10 +38,15 @@ const Leaderboard = () => {
           />
         </Pressable>
         <Text style={styles.navigationBarText}>Quiz 1 - Leaderboard</Text>
-        <Image
-          style={styles.navigationBarIconImage}
-          source={require("../assets/icon--more.png")}
-        />
+        <Pressable
+          style={styles.navigationBarIcon}
+          onPress={() => navigation.navigate("Menu")}
+        >
+          <Image
+            style={styles.navigationBarIconImage}
+            source={require("../assets/icon--more.png")}
+          />
+        </Pressable>
       </View>
     </View>
   );
