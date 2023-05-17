@@ -7,14 +7,14 @@ import { useFonts } from 'expo-font';
 const login = ({ navigation }) => {
      const [email, setEmail] = useState('');
      const [password, setPassword] = useState('');
-     const [showPassword, setShowPassword] = useState(false); // State untuk mengontrol tampilan password
+     const [showPassword, setShowPassword] = useState(false); 
      const [error, setError] = useState(null);
      const [loading, setLoading] = useState({
           loadingLogin:false,
      });
 
      const toggleShowPassword = () => {
-          setShowPassword(!showPassword); // Mengubah state showPassword ketika tombol mata ditekan
+          setShowPassword(!showPassword); 
      };
 
      const AuthLogin = async () =>{ 

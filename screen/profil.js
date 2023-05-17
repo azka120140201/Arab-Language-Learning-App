@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image,  TouchableOpacity, BackHandler} from 'react-native';
+import { View, Text, Image,  TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { auth, db } from '../src/DataBase/firebaseConfig';
 import { ref, onValue } from 'firebase/database';
