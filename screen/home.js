@@ -186,8 +186,8 @@ const home = ({ navigation }) => {
                               }}>
                               Leaderboard</Text>
                     </View>
-               </TouchableOpacity>
-              <TouchableOpacity>
+               </TouchableOpacity >
+              <TouchableOpacity onPress={() => navigation.navigate('profil')}>
                     <View style={{
                          flexDirection: 'row',
                          marginHorizontal: 20,

@@ -34,8 +34,9 @@ const signup = ({ navigation }) => {
         const user = userCredential.user;
 
         // Simpan data tambahan ke database Firebase
-        const userRef = ref(db, 'users/' + user.uid);
+        const userRef = ref(db,  `users/${user.uid}`);
         set(userRef, {
+          email: email,
           name: name,
           telepon: telepon,
         }).then(() => {

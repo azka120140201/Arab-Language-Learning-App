@@ -1,105 +1,304 @@
-import React, { useState } from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import { View, Text, Image,  TouchableOpacity, BackHandler} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { auth, db } from '../src/DataBase/firebaseConfig';
+import { ref, onValue } from 'firebase/database';
 
-const profil = () => {
-  const data = [
-    { id: 1, image: 'https://static.vecteezy.com/system/resources/previews/006/417/311/original/outline-email-icon-isolated-on-grey-background-open-envelope-pictogram-line-mail-symbol-for-website-design-mobile-application-ui-illustration-eps10-free-vector.jpg', title: 'email' },
-    {
-      id: 2,
-      image: 'https://img.icons8.com/color/70/000000/administrator-male.png',
-      title: 'Password',
-    },
-    { id: 3, image: 'https://img.icons8.com/color/70/000000/filled-like.png', title: 'Score' },
-    { id: 4, image: 'https://img.icons8.com/color/70/000000/facebook-like.png', title: 'Logout' },
-   
-  ]
+const Profil = ({ navigation }) => {
+  const [userData, setUserData] = useState(null);
 
-  const [options, setOptions] = useState(data)
+  useEffect(() => {
+    // Fungsi untuk mengambil data pengguna dari Firebase
+    const fetchUserData = async () => {
+      try {
+        // Mendapatkan pengguna yang sedang login
+        const user = auth.currentUser;
+
+        // Mendefinisikan path pengguna di Firebase
+        const userPath = `users/${user.uid}`;
+
+        // Listener untuk mendapatkan perubahan data pengguna
+        const userRef = ref(db, userPath);
+        onValue(userRef, (snapshot) => {
+          const userData = snapshot.val();
+
+          // Menyimpan data pengguna ke dalam state
+          setUserData(userData);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.headerContent}>
+    <View style={{ flex: 1, backgroundColor: '#F9F6EE' }}>
+      <View style={{ flex: 0.5, backgroundColor: '#93C572' }}>
+      <TouchableOpacity  
+          onPress={() => navigation.goBack()}
+          style={{
+                marginTop: 21,
+                marginLeft: 21
+          }}>
+          <Icon name="chevron-left" size={17} color="#111"/> 
+      </TouchableOpacity>
+      </View>
+      <View style={{ flex: 1, backgroundColor: '#F9F6EE' }}>
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
           <Image
-            style={styles.avatar}
-            source={{ uri: 'https://thumbs.dreamstime.com/b/businesswoman-avatar-flat-design-businesswoman-design-woman-business-management-corporate-job-occupation-worker-theme-vector-163223630.jpg' }}
+            source={require('../src/images/foto_profil.jpg')}
+            style={{
+              width: 100,
+              height: 100,
+              borderRadius: 50,
+              marginLeft: 5,
+              position: 'absolute',
+              marginBottom: 370,
+              borderColor: '#ffff',
+              borderWidth: 3
+            }}
           />
-          <Text style={styles.name}>Hanna Lee</Text>
-          <Text style={styles.name}>I like the music</Text>
+
+{userData && (
+            <View>
+          
+          
+                    <View style={{
+                         flexDirection: 'row',
+                         marginHorizontal: 20,
+                         marginTop: 100,
+                    }}>
+                         <View
+                              style={{
+                                   justifyContent: 'center',
+                                   alignItems: 'center',
+                                   backgroundColor: '#93C572',
+                                   width: 50,
+                                   borderTopLeftRadius: 5,
+                                   borderBottomLeftRadius: 5,
+                                   elevation: 10,
+                                   
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                              <Icon name="user" size={17} color="#111" />
+                         </View>
+                         <Text
+                              style={{
+                                   backgroundColor: '#93C572',
+                                   borderTopRightRadius: 5,
+                                   borderBottomRightRadius: 5,
+                                   flex: 1,
+                                   paddingVertical: 15,
+                                   paddingHorizontal: 20,
+                                   elevation: 10,
+                                   paddingLeft: 10,
+                                   fontFamily: 'SpaceGrotesk',
+                                   fontWeight: "bold",
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                              {userData.name}</Text>
+                    </View>
+               
+
+          
+                    <View style={{
+                         flexDirection: 'row',
+                         marginHorizontal: 20,
+                         marginTop: 20,
+                    }}>
+                         <View
+                              style={{
+                                   justifyContent: 'center',
+                                   alignItems: 'center',
+                                   backgroundColor: '#93C572',
+                                   width: 50,
+                                   borderTopLeftRadius: 5,
+                                   borderBottomLeftRadius: 5,
+                                   elevation: 10,
+                                   
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                              <Icon name="phone-alt" size={17} color="#111" />
+                         </View>
+                         <Text
+                              style={{
+                                   backgroundColor: '#93C572',
+                                   borderTopRightRadius: 5,
+                                   borderBottomRightRadius: 5,
+                                   flex: 1,
+                                   paddingVertical: 15,
+                                   paddingHorizontal: 20,
+                                   elevation: 10,
+                                   paddingLeft: 10,
+                                   fontFamily: 'SpaceGrotesk',
+                                   fontWeight: "bold",
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                              {userData.telepon}</Text>
+                    </View>
+               
+
+         
+                    <View style={{
+                         flexDirection: 'row',
+                         marginHorizontal: 20,
+                         marginTop: 20,
+                    }}>
+                         <View
+                              style={{
+                                   justifyContent: 'center',
+                                   alignItems: 'center',
+                                   backgroundColor: '#93C572',
+                                   width: 50,
+                                   borderTopLeftRadius: 5,
+                                   borderBottomLeftRadius: 5,
+                                   elevation: 10,
+                                   
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                              <Icon name="envelope" size={17} color="#111" />
+                         </View>
+                         <Text
+                              style={{
+                                   backgroundColor: '#93C572',
+                                   borderTopRightRadius: 5,
+                                   borderBottomRightRadius: 5,
+                                   flex: 1,
+                                   paddingVertical: 15,
+                                   paddingHorizontal: 20,
+                                   elevation: 10,
+                                   paddingLeft: 10,
+                                   fontFamily: 'SpaceGrotesk',
+                                   fontWeight: "bold",
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                             {auth.currentUser.email}</Text>
+                    </View>
+  
+                  <TouchableOpacity onPress={() => navigation.navigate('login')}>
+                    <View style={{
+                         flexDirection: 'row',
+                         marginHorizontal: 20,
+                         marginTop: 20,
+                    }}>
+                         <View
+                              style={{
+                                   justifyContent: 'center',
+                                   alignItems: 'center',
+                                   backgroundColor: '#93C572',
+                                   width: 50,
+                                   borderTopLeftRadius: 5,
+                                   borderBottomLeftRadius: 5,
+                                   elevation: 10,
+                                   
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                              <Icon name="sign-out-alt" size={17} color="#111" />
+                         </View>
+                         <Text
+                              style={{
+                                   backgroundColor: '#93C572',
+                                   borderTopRightRadius: 5,
+                                   borderBottomRightRadius: 5,
+                                   flex: 1,
+                                   paddingVertical: 15,
+                                   paddingHorizontal: 20,
+                                   elevation: 10,
+                                   paddingLeft: 10,
+                                   fontFamily: 'SpaceGrotesk',
+                                   fontWeight: "bold",
+
+                                   shadowColor: 'black',
+                                   shadowOffset: { width: 0, height: 2 },
+                                   shadowOpacity: 0.5,
+                                   shadowRadius: 4,
+                              }}>
+                              Log-Out</Text>
+                      
+                    </View>
+                  </TouchableOpacity>
+            </View>
+          )}
         </View>
       </View>
+      <View style={{ flex: 0.15, backgroundColor: '#93C572', borderTopLeftRadius: 15, borderTopRightRadius: 15 }}>
+      <View style={{ marginTop: 20, flexDirection: 'row' }}>
+                         <TouchableOpacity
+                              onPress={() => navigation.navigate('materi')}
+                              style={{
+                                   flex: 1,
+                                   justifyContent: 'center',
+                                   alignItems: 'center'
+                              }}
+                         >
+                              <Icon name="book" size={20} color="#111" />
+                         </TouchableOpacity>
+                         <TouchableOpacity
+                              onPress={() => navigation.navigate('menuKuis')}
+                              style={{
+                                   flex: 1,
+                                   justifyContent: 'center',
+                                   alignItems: 'center'
+                              }}
+                         >
+                              <Icon name="pen" size={20} color="#111" />
+                         </TouchableOpacity>
+                         <TouchableOpacity
+                              style={{
+                                   flex: 1,
+                                   justifyContent: 'center',
+                                   alignItems: 'center'
+                              }}
+                         >
+                              <Icon name="chart-bar" size={20} color="#111" />
+                         </TouchableOpacity>
+                         <TouchableOpacity
+                              onPress={() => navigation.navigate('home')}
+                              style={{
+                                   flex: 1,
+                                   justifyContent: 'center',
+                                   alignItems: 'center'
+                              }}
+                         >
+                              <Icon name="home" size={20} color="#111" />
+                         </TouchableOpacity>
 
-      <View style={styles.body}>
-        <FlatList
-          style={styles.container}
-          enableEmptySections={true}
-          data={options}
-          keyExtractor={item => item.id}
-          renderItem={({ item }) => {
-            return (
-              <TouchableOpacity>
-                <View style={styles.box}>
-                  <Image style={styles.icon} source={{ uri: item.image }} />
-                  <Text style={styles.title}>{item.title}</Text>
-                  <Image
-                    style={styles.btn}
-                    source={{ uri: 'https://img.icons8.com/customer/office/40' }}
-                  />
-                </View>
-              </TouchableOpacity>
-            )
-          }}
-        />
+                    </View>
+
+
       </View>
     </View>
-  )
+  );
 };
-export default profil;
 
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: '#90EE90',
-  },
-  headerContent: {
-    padding: 30,
-    alignItems: 'center',
-  },
-  avatar: {
-    width: 130,
-    height: 130,
-    borderRadius: 63,
-    borderWidth: 4,
-    borderColor: '#000000',
-    marginBottom: 10,
-  },
-  icon: {
-    width: 40,
-    height: 40,
-  },
-  title: {
-    fontSize: 18,
-    color: '#000000',
-    marginLeft: 4,
-  },
-  btn: {
-    marginLeft: 'auto',
-    width: 40,
-    height: 40,
-  },
-  body: {
-    backgroundColor: '#E6E6FA',
-  },
-  box: {
-    padding: 5,
-    marginBottom: 2,
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    alignItems:'center',
-  },
-  username: {
-    color: '#20B2AA',
-    fontSize: 22,
-    alignSelf: 'center',
-    marginLeft: 10,
-  },
-})
+export default Profil;
