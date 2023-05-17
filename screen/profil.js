@@ -55,7 +55,7 @@ const Profil = ({ navigation }) => {
               borderRadius: 50,
               marginLeft: 5,
               position: 'absolute',
-              marginBottom: 370,
+              marginBottom: 330,
               borderColor: '#ffff',
               borderWidth: 3
             }}
@@ -68,7 +68,7 @@ const Profil = ({ navigation }) => {
                     <View style={{
                          flexDirection: 'row',
                          marginHorizontal: 20,
-                         marginTop: 100,
+                         marginTop: 60,
                     }}>
                          <View
                               style={{
@@ -273,7 +273,7 @@ const Profil = ({ navigation }) => {
                          >
                               <Icon name="pen" size={20} color="#111" />
                          </TouchableOpacity>
-                         <TouchableOpacity
+                         <TouchableOpacity  onPress={() => navigation.navigate('Leaderboard')}
                               style={{
                                    flex: 1,
                                    justifyContent: 'center',

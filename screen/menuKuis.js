@@ -31,14 +31,13 @@ const menuKuis = ({ navigation }) => {
                               marginTop: 25,
                          }}>
                          <View>
-                              <TouchableOpacity
-                                   onPress={() => navigation.goBack()}
-                              >
+                              <TouchableOpacity onPress={() => navigation.goBack()}>
                                    <Icon name="chevron-left" size={17} color="#111" />
                               </TouchableOpacity>
                          </View>
                          <Text
                               style={{
+                                   fontFamily: 'SpaceGrotesk',
                                    marginLeft: 15,
                                    fontWeight: 'bold'
                               }}
@@ -74,7 +73,7 @@ const menuKuis = ({ navigation }) => {
 
 
 
-                    <TouchableOpacity  onPress={() => navigation.navigate('materi')}>
+                    <TouchableOpacity  onPress={() => navigation.navigate('kuisSentence')}>
                          <View style={styles.pilihanMenu}>
                               <View style={styles.iconMeneKuis}>
                                    <Icon name="book-open" size={17} color="#111" />
@@ -83,7 +82,7 @@ const menuKuis = ({ navigation }) => {
                          </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity  onPress={() => navigation.navigate('materi')}>
+                    <TouchableOpacity  onPress={() => navigation.navigate('kuisVocab')}>
                          <View style={styles.pilihanMenu}>
                               <View style={styles.iconMeneKuis}>
                                    <Icon name="book-reader" size={17} color="#111" />
@@ -92,10 +91,10 @@ const menuKuis = ({ navigation }) => {
                          </View>
                     </TouchableOpacity>
 
-                    <TouchableOpacity  onPress={() => navigation.navigate('materi')}>
+                    <TouchableOpacity  onPress={() => navigation.navigate('kuisWtoP')}>
                          <View style={styles.pilihanMenu}>
                               <View style={styles.iconMeneKuis}>
-                                   <Icon name="camera" size={17} color="#111" />
+                                   <Icon name="images" size={17} color="#111" />
                               </View>
                               <Text style={styles.tombolMenuKuis}>Picture</Text>
                          </View>
@@ -132,7 +131,7 @@ const menuKuis = ({ navigation }) => {
                          >
                               <Icon name="book" size={20} color="#111" />
                          </TouchableOpacity>
-                         <TouchableOpacity
+                         <TouchableOpacity onPress={() => navigation.navigate('Leaderboard')}
                               style={{
                                    flex: 1,
                                    justifyContent: 'center',

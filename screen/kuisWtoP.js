@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Alert, Button, StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import ProgressBar from "../assets/ProgressBar";
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export default class Quiz extends Component {
   constructor(props) {
@@ -127,8 +128,8 @@ export default class Quiz extends Component {
           <TouchableOpacity style={styles.startButton} onPress={() => this.startQuiz()}>
             <Text style={styles.startButtonText}>Start Quiz</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.backButton} onPress={() => this.goBack()}>
-            <Text style={styles.backButtonText}>Back</Text>
+          <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.pop()}>
+            <Icon name="chevron-left" size={17} color="#111"/> 
           </TouchableOpacity>
         </View>
       );
@@ -141,10 +142,10 @@ export default class Quiz extends Component {
             <Text style={styles.scoreText}>Quiz Finished!</Text>
             <Text style={styles.scoreText}>Your Score: {this.state.score}</Text>
             <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.restartButton} onPress={() => this.startQuiz()}>
+              <TouchableOpacity style={styles.restartButton} onPress={() => this.props.navigation.navigate('menuKuis')}>
                 <Text style={styles.restartButtonText}>Restart Quiz</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.homeButton} onPress={() => this.goToHome()}>
+              <TouchableOpacity style={styles.homeButton} onPress={() => this.props.navigation.navigate('home')}>
                 <Text style={styles.homeButtonText}>Home</Text>
               </TouchableOpacity>
             </View>
@@ -278,7 +279,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 20,
     left: 20,
-    backgroundColor: "green",
     padding: 12,
     borderRadius: 10,
   },

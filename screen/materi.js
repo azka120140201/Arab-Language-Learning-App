@@ -81,9 +81,9 @@ const materi = ({ navigation }) => {
               alignItems: 'center'
             }}
           >
-            <Icon name="quidditch" size={20} color="#111" />
+            <Icon name="pen" size={20} color="#111" />
           </TouchableOpacity>
-          <TouchableOpacity
+          <TouchableOpacity onPress={() => navigation.navigate('Leaderboard')}
             style={{
               flex: 1,
               justifyContent: 'center',

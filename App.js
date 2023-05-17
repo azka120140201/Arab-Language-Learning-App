@@ -19,6 +19,7 @@ import Leaderboard from './screen/leaderboard';
 import kuisListening from './screen/kuisListening';
 import kuisVocab from './screen/kuisVocab';
 import kuisSentence from './screen/kuisSentence';
+import kuisWtoP from './screen/kuisWtoP';
 import berhasilSignup from './screen/berhasilSignup';
 
 const Stack = createNativeStackNavigator();
@@ -44,6 +45,7 @@ function App() {
         <Stack.Screen name="kuisListening" component={kuisListening} />
         <Stack.Screen name="kuisVocab" component={kuisVocab} />
         <Stack.Screen name="kuisSentence" component={kuisSentence} />
+        <Stack.Screen name="kuisWtoP" component={kuisWtoP} />
         <Stack.Screen name="berhasilSignup" component={berhasilSignup} />
       </Stack.Navigator>
     </NavigationContainer>
