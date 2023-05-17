@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useSelector, useDispatch } from 'react-redux'; // Import useSelector and useDispatch
 
 const materiHewan = ({ navigation }) => {
-    const [words, setWords] = useState([
+    const words = [
         { arabic: 'أسد', translation: 'singa' },
         { arabic: 'فيل', translation: 'gajah' },
         { arabic: 'نمر', translation: 'harimau' },
@@ -24,25 +25,23 @@ const materiHewan = ({ navigation }) => {
         { arabic: 'قط', translation: 'kucing' },
         { arabic: 'كلب', translation: 'anjing' },
         { arabic: 'حمار', translation: 'keledai' },
-    ].sort((a, b) => a.arabic.localeCompare(b.arabic)));
-
+    ].sort((a, b) => a.arabic.localeCompare(b.arabic));
 
     const displayedWords = words.slice(0, 20); // Display only the first 20 words
+
+    const dispatch = useDispatch();
+    const containerColor = useSelector((state) => state.containerColor);
 
     const handleScroll = (event) => {
         const { contentOffset, layoutMeasurement, contentSize } = event.nativeEvent;
         const isEndReached = layoutMeasurement.height + contentOffset.y >= contentSize.height;
 
         if (isEndReached) {
-            // User has scrolled to the end, change the background color
-            setContainerColor('#F9F6EE');
+            dispatch({ type: 'SET_CONTAINER_COLOR', payload: '#F9F6EE' });
         } else {
-            // User is not at the end, reset the background color
-            setContainerColor('#F9F6EE');
+            dispatch({ type: 'SET_CONTAINER_COLOR', payload: '#F9F6EE' });
         }
     };
-
-    const [containerColor, setContainerColor] = useState('#F9F6EE');
 
     return (
         <ScrollView

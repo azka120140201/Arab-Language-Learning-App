@@ -1,9 +1,10 @@
 // In App.js in a new project
-
-import * as React from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import store from './redux/store'; // Mengimpor store Redux
 import login from './screen/login';
 import signup from './screen/signup';
 import splashScreen from './screen/splashScreen';
@@ -25,28 +26,31 @@ const Stack = createNativeStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-      initialRouteName='splashScreen'
-      screenOptions={{headerShown: false}}>
-        <Stack.Screen name="splashScreen" component={splashScreen} />
-        <Stack.Screen name="login" component={login} />
-        <Stack.Screen name="signup" component={signup} />
-        <Stack.Screen name="home" component={home} />
-        <Stack.Screen name="materi" component={materi} />
-        <Stack.Screen name="materiBenda" component={materiBenda} />
-        <Stack.Screen name="materiHewan" component={materiHewan} />
-        <Stack.Screen name="materiKerja" component={materiKerja} />
-        <Stack.Screen name="materiKeterangan" component={materiKeterangan} />
-        <Stack.Screen name="menuKuis" component={menuKuis} />
-        <Stack.Screen name="profil" component={profil} />
-        <Stack.Screen name="Leaderboard" component={Leaderboard} />
-        <Stack.Screen name="kuisVocab" component={kuisVocab} />
-        <Stack.Screen name="kuisSentence" component={kuisSentence} />
-        <Stack.Screen name="kuisWtoP" component={kuisWtoP} />
-        <Stack.Screen name="berhasilSignup" component={berhasilSignup} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName='splashScreen'
+          screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="splashScreen" component={splashScreen} />
+          <Stack.Screen name="login" component={login} />
+          <Stack.Screen name="signup" component={signup} />
+          <Stack.Screen name="home" component={home} />
+          <Stack.Screen name="materi" component={materi} />
+          <Stack.Screen name="materiBenda" component={materiBenda} />
+          <Stack.Screen name="materiHewan" component={materiHewan} />
+          <Stack.Screen name="materiKerja" component={materiKerja} />
+          <Stack.Screen name="materiKeterangan" component={materiKeterangan} />
+          <Stack.Screen name="menuKuis" component={menuKuis} />
+          <Stack.Screen name="profil" component={profil} />
+          <Stack.Screen name="Leaderboard" component={Leaderboard} />
+          <Stack.Screen name="kuisVocab" component={kuisVocab} />
+          <Stack.Screen name="kuisSentence" component={kuisSentence} />
+          <Stack.Screen name="kuisWtoP" component={kuisWtoP} />
+          <Stack.Screen name="berhasilSignup" component={berhasilSignup} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
+
   );
 }
 
