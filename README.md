@@ -1,7 +1,7 @@
 ## Nama dan NIM Anggota Kelompok
 | Nama | NIM | Github |
 | :---: | :---: | :---: |
-| Nurul Fikri                           | 120140053 | [Fikrii12]     (https://github.com/Fikrii12)       |
+| Nurul Fikri                           | 120140053 | [Fikrii12](https://github.com/Fikrii12)       |
 | Ferawati Manurung                     | 120140196 | [feramanurung4](https://github.com/feramanurung4)  |
 | Azka Hafidz Asianto                   | 120140201 | [azka120140201](https://github.com/azka120140201)  |
 | Dandy Arkandhiya Putra                | 120140203 | [120140203Dandy](https://github.com/120140203Dandy)|
