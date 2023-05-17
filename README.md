@@ -1,3 +1,13 @@
+## Nama dan NIM Anggota Kelompok
+| Nama | NIM | Github |
+| :---: | :---: | :---: |
+| Nurul Fikri                           | 120140053 | [Fikrii12](https://github.com/ Fikrii12)           |
+| Ferawati Manurung                     | 120140196 | [feramanurung4](https://github.com/feramanurung4)  |
+| Azka Hafidz Asianto                   | 120140201 | [azka120140201](https://github.com/azka120140201)  |
+| Dandy Arkandhiya Putra                | 120140203 | [120140203Dandy](https://github.com/120140203Dandy)|
+| Noviana Gresita Br. Perangin-Angin    | 120140239 | [novianagresita](https://github.com/novianagresita)
+
+
 # DarsuArab
 
 DarsuArab adalah sebuah aplikasi belajar bahasa Arab berbasis mobile yang bertujuan untuk membantu pengguna dalam belajar bahasa Arab dengan mudah dan menyenangkan. Aplikasi ini menyediakan berbagai fitur yang dapat membantu pengguna meningkatkan kemampuan bahasa Arab mereka. Aplikasi ini dapat digunakan bagi seseorang yang baru ingin mempelajari bahasa Arab. Berikut ini fitur yang terdapat pada aplikasi DarsuArab : 
