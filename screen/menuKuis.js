@@ -1,11 +1,21 @@
 import React, { Component, useEffect, useState } from 'react';
-import { View, Text, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import { useFonts } from 'expo-font';
 
 
 const menuKuis = ({ navigation }) => {
-     const [email, setEmail] = useState('');
-     const [password, setPassword] = useState('');
+
+
+     
+     const [loaded] = useFonts({
+          SpaceGrotesk: require('../assets/fonts/SpaceGrotesk-VariableFont_wght.ttf'),
+     });
+
+     if (!loaded) {
+          return null;
+     }
+
      return (
           <View
                style={{
@@ -35,105 +45,63 @@ const menuKuis = ({ navigation }) => {
                          >Choose Category Quiz</Text>
                     </View>
 
+
+
+
                     <View
+                    style={{
+                         justifyContent: 'center',
+                         alignItems: 'center',
+                         marginTop: 30,
+                    }}>
+                    <Image
+                         source={require('../src/images/Logo.png')}
                          style={{
-                              justifyContent: 'center',
-                              alignItems: 'center'
-                         }}
-                    >
-                         <View
-                              style={{
-                                   flexDirection: 'row',
-                                   marginHorizontal: 20,
-                                   marginTop: 100,
-                              }}>
-                              <TouchableOpacity onPress={() => navigation.navigate('kuisListening')}>
+                              width: 150,
+                              height: 150,
+                              marginBottom: -20,
 
-                                   <Image
-                                        source={require('../src/images/headphones@3x.png')}
-                                        style={{
-                                             width: 80,
-                                             height: 80,
-                                             backgroundColor: '#93C572',
-                                             borderRadius: 12,
-                                             marginRight: 5,
-                                        }}
-                                   />
-                                   <Text
-                                        style={{
-                                             marginRight: 5,
-                                             fontWeight: 'bold'
-                                        }}
-                                   >Listening</Text>
-                              </TouchableOpacity>
+                              shadowColor: 'black',
+                              shadowOffset: { width: 0, height: 2 },
+                              shadowOpacity: 0.5,
+                              shadowRadius: 4,
+                         }} />
 
-                              <TouchableOpacity onPress={() => navigation.navigate('kuisSentence')}>
-                                   <Image
-                                        source={require('../src/images/search-database@3x.png')}
-                                        style={{
-                                             width: 80,
-                                             height: 80,
-                                             backgroundColor: '#93C572',
-                                             borderRadius: 12,
-                                             marginLeft: 5,
-                                        }}
-                                   />
-                                   <Text
-                                        style={{
-                                             marginLeft: 5,
-                                             fontWeight: 'bold'
-                                        }}
-                                   >Sentence</Text>
-                              </TouchableOpacity>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold',fontFamily: 'SpaceGrotesk' }}>DARSU<Text style={{ color: '#72A152' }}>ARAB</Text></Text>
+                    <Text style={{ fontSize: 24, fontWeight: 'bold',fontFamily: 'SpaceGrotesk' }}>QUIZ</Text>
+                   
+               </View>
+
+
+
+                    <TouchableOpacity  onPress={() => navigation.navigate('materi')}>
+                         <View style={styles.pilihanMenu}>
+                              <View style={styles.iconMeneKuis}>
+                                   <Icon name="book-open" size={17} color="#111" />
+                              </View>
+                              <Text style={styles.tombolMenuKuis}>Sentence</Text>
                          </View>
+                    </TouchableOpacity>
 
-                         <View
-                              style={{
-                                   flexDirection: 'row',
-                                   marginHorizontal: 20,
-                                   marginTop: 25,
-                              }}>
-
-                              <TouchableOpacity onPress={() => navigation.navigate('kuisVocab')}>
-                                   <Image
-                                        source={require('../src/images/books@3x.png')}
-                                        style={{
-                                             width: 80,
-                                             height: 80,
-                                             backgroundColor: '#93C572',
-                                             borderRadius: 12,
-                                             marginRight: 5,
-                                        }} />
-                                   <Text
-                                        style={{
-                                             marginRight: 5,
-                                             fontWeight: 'bold'
-                                        }}
-                                   >Vocabula</Text>
-                              </TouchableOpacity>
-
-                              <TouchableOpacity onPress={() => navigation.navigate('kuisWtoP')}>
-                                   
-                                   <Image
-                                        source={require('../src/images/camera-identification@3x.png')}
-                                        style={{
-                                             width: 80,
-                                             height: 80,
-                                             backgroundColor: '#93C572',
-                                             borderRadius: 12,
-                                             marginLeft: 5,
-                                        }}
-                                   />
-                                   <Text
-                                        style={{
-                                             marginLeft: 5,
-                                             fontWeight: 'bold'
-                                        }}
-                                   >picture</Text>
-                              </TouchableOpacity>
+                    <TouchableOpacity  onPress={() => navigation.navigate('materi')}>
+                         <View style={styles.pilihanMenu}>
+                              <View style={styles.iconMeneKuis}>
+                                   <Icon name="book-reader" size={17} color="#111" />
+                              </View>
+                              <Text style={styles.tombolMenuKuis}>Vocabulary</Text>
                          </View>
+                    </TouchableOpacity>
 
-                    </View>
+                    <TouchableOpacity  onPress={() => navigation.navigate('materi')}>
+                         <View style={styles.pilihanMenu}>
+                              <View style={styles.iconMeneKuis}>
+                                   <Icon name="camera" size={17} color="#111" />
+                              </View>
+                              <Text style={styles.tombolMenuKuis}>Picture</Text>
+                         </View>
+                    </TouchableOpacity>
+                    
+
                </View>
 
                <View
@@ -192,4 +160,45 @@ const menuKuis = ({ navigation }) => {
 
      );
 }
+
+const styles = StyleSheet.create({
+     iconMeneKuis: {
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#93C572',
+          width: 50,
+          borderTopLeftRadius: 5,
+          borderBottomLeftRadius: 5,
+          elevation: 10,
+          
+
+          shadowColor: 'black',
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.5,
+          shadowRadius: 4,
+      },
+      tombolMenuKuis:{
+          backgroundColor: '#93C572',
+          borderTopRightRadius: 5,
+          borderBottomRightRadius: 5,
+          flex: 1,
+          paddingVertical: 15,
+          elevation: 10,
+          paddingLeft: 10,
+          fontFamily: 'SpaceGrotesk',
+          fontWeight: "bold",
+
+          shadowColor: 'black',
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.5,
+          shadowRadius: 4,
+      },
+      pilihanMenu: {
+          flexDirection: 'row',
+          marginHorizontal: 20,
+          marginTop: 20,
+      }
+
+});
+
 export default menuKuis;

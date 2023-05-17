@@ -143,7 +143,7 @@ const home = ({ navigation }) => {
                               Quis</Text>
                     </View>
                </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate('Leaderboard')}>
                     <View style={{
                          flexDirection: 'row',
                          marginHorizontal: 20,
