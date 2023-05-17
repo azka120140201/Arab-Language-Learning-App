@@ -41,10 +41,8 @@ const materi = ({ navigation }) => {
               marginLeft: 15,
               fontWeight: 'bold'
             }}
-          >Choose Category Quiz</Text>
+          >Choose Lessons</Text>
         </View>
-
-
 
 
         <View
